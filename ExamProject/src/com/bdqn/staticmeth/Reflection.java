@@ -5,12 +5,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public final class Reflection {
-	//»ñÈ¡ÊµÌåÀàµÄËùÓĞÊôĞÔÃû(È¥³ıtablename ĞèÒª´«ÈëÊµÏÖÀàµÄsuperclass())
+	//è·å–å®ä½“ç±»çš„æ‰€æœ‰å±æ€§å(å»é™¤tablename éœ€è¦ä¼ å…¥å®ç°ç±»çš„superclass())
 	@SuppressWarnings({ "rawtypes", "unused" })
 	public static ArrayList<String> GetBeansAllFields(Class cs){
 		ArrayList<String> beanmethods=new ArrayList<String>(); 
 		try {
-			Object bean=cs.newInstance(); //´´½¨Ò»¸öÊµÀı
+			Object bean=cs.newInstance(); //åˆ›å»ºä¸€ä¸ªå®ä¾‹
 			Field[] fields= cs.getDeclaredFields();
 			for(Field fieldtemp:fields) {
 				if(fieldtemp.getName().equals("tablename")==false) {
@@ -24,7 +24,7 @@ public final class Reflection {
 		return beanmethods;
 	}
 	
-	//°Ñ´«ÈëµÄÊôĞÔÃû×ª»»ÎªeclipseµÄÄ¬ÈÏ·â×°Ãû Get
+	//æŠŠä¼ å…¥çš„å±æ€§åè½¬æ¢ä¸ºeclipseçš„é»˜è®¤å°è£…å Get
 	public static String  GetGetMethodNameForEclipseEncap(String fieldname) {
 		char[] temp=fieldname.toCharArray();
 		temp[0]=Character.toUpperCase(temp[0]);
@@ -32,7 +32,7 @@ public final class Reflection {
 	}
 	
 	
-	//°Ñ´«ÈëµÄÊôĞÔÃû×ª»»ÎªeclipseµÄÄ¬ÈÏ·â×°Ãû Set
+	//æŠŠä¼ å…¥çš„å±æ€§åè½¬æ¢ä¸ºeclipseçš„é»˜è®¤å°è£…å Set
 	public static String GetSetMethodNameForEclipseEncap(String fieldname) {
 		char[] temp=fieldname.toCharArray();
 		temp[0]=Character.toUpperCase(temp[0]);
@@ -40,7 +40,7 @@ public final class Reflection {
 	}
 	
 	
-	//Ê¹ÓÃclassµÄÄ³¸öº¯Êı ½ö´«ÈëÒ»¸ödata²ÎÊı ²ÎÊı:·½·¨Ãû,²ÎÊı,´«²Îbean
+	//ä½¿ç”¨classçš„æŸä¸ªå‡½æ•° ä»…ä¼ å…¥ä¸€ä¸ªdataå‚æ•° å‚æ•°:æ–¹æ³•å,å‚æ•°,ä¼ å‚bean
 	public static Object invokeByMethodName(String MethodName,Object data,Object bean) {
 		try {
 			Method method=bean.getClass().getDeclaredMethod(MethodName,data.getClass());

@@ -24,7 +24,7 @@ import com.bdqn.biz.LoginBiz;
 public class Login extends JFrame{
 	@SuppressWarnings({ })
 	public Login() {
-		setTitle(" ¿¼ ÊÔ Æ½ Ì¨");
+		setTitle(" è€ƒ è¯• å¹³ å°");
 		setBounds(600, 800, 646, 397);
 		this.setLocation((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2-this.getWidth()/2), 
 				(int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2-this.getHeight()/2));
@@ -39,15 +39,15 @@ public class Login extends JFrame{
 				jl4=new JLabel();
 		
 		
-		jl1.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,18));
+		jl1.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,18));
 		jl1.setBounds(230, 125, 50, 30);
-		jl1.setText("ÕËºÅ:");
-		jl2.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,18));
+		jl1.setText("è´¦å·:");
+		jl2.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,18));
 		jl2.setBounds(230, 175, 50, 30);
-		jl2.setText("ÃÜÂë:");
+		jl2.setText("å¯†ç :");
 		
 		JTextField jf1=new JTextField();
-		jf1.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,18));
+		jf1.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,18));
 		jf1.setBorder(BorderFactory.createBevelBorder(1));
 		jf1.setBounds(350, 125, 170, 30);
 		jf1.addKeyListener(new KeyListener() {
@@ -71,7 +71,7 @@ public class Login extends JFrame{
 			}});
 		
 		JPasswordField jp=new JPasswordField();
-		jp.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,18));
+		jp.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,18));
 		jp.setBorder(BorderFactory.createBevelBorder(1));
 		jp.setBounds(350, 175, 170, 30);
 		jp.setEchoChar('*');
@@ -84,10 +84,10 @@ public class Login extends JFrame{
 		c.add(jl3);
 		c.add(jl4);
 		
-		JRadioButton teacher=new JRadioButton("ÀÏÊ¦");
-		JRadioButton student=new JRadioButton("Ñ§Éú");
-		teacher.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,18));
-		student.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,18));
+		JRadioButton teacher=new JRadioButton("è€å¸ˆ");
+		JRadioButton student=new JRadioButton("å­¦ç”Ÿ");
+		teacher.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,18));
+		student.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,18));
 		teacher.setBounds(310,220, 100, 50);
 		student.setBounds(450,220, 100, 50);
 		teacher.setContentAreaFilled(false);
@@ -99,9 +99,9 @@ public class Login extends JFrame{
 		but.add(teacher);
 		but.add(student);
 		
-		JButton jt=new JButton("µÇ   Â¼");
+		JButton jt=new JButton("ç™»   å½•");
 		jt.setBounds(301, 267, 250, 50);
-		jt.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,18));
+		jt.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,18));
 		jt.setBackground(new Color(88,185,227));
 		jt.setForeground(Color.WHITE);
 		
@@ -112,7 +112,7 @@ public class Login extends JFrame{
 			}
 		});
 		c.add(jt);
-		JLabel label=new JLabel(new ImageIcon("src/com/bdqn/images/µÇÂ¼.jpg"));
+		JLabel label=new JLabel(new ImageIcon("src/com/bdqn/images/ç™»å½•.jpg"));
 		label.setBounds(0, 0,640,360);
 		c.add(label);
 	}

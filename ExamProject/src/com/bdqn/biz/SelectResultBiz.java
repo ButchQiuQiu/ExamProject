@@ -15,7 +15,7 @@ import com.bdqn.data.impl.ExampaperDaoImpl;
 import com.bdqn.data.impl.ResultDaoImpl;
 import com.bdqn.data.impl.StudentDaoImpl;
 import com.bdqn.staticmeth.DataBase;
-//²éÑ¯³É¼¨Âß¼­
+//æŸ¥è¯¢æˆç»©é€»è¾‘
 public class SelectResultBiz {
 
 	Connection conn=null;
@@ -23,9 +23,9 @@ public class SelectResultBiz {
 	ResultSet rs=null;
 	DataBase bs=new DataBase();
 	
-	public List<Result> findResult(String name){//²éÑ¯ËùÓĞµÄ³É¼¨
+	public List<Result> findResult(String name){//æŸ¥è¯¢æ‰€æœ‰çš„æˆç»©
 		List<Result>lResult=new ArrayList<Result>();//
-		String sql="select * from "+Result.tablename;//²éÑ¯ËùÓĞµÄ³É¼¨
+		String sql="select * from "+Result.tablename;//æŸ¥è¯¢æ‰€æœ‰çš„æˆç»©
 		if(!(name.equals(""))) {
 			int id=Integer.parseInt(name);
 			sql+=" where stuid="+id;
@@ -34,7 +34,7 @@ public class SelectResultBiz {
 		return lResult;
 	}
 	
-	public Student findStudent(int id) {//¸ù¾İÑ§ºÅ²éÑ¯Ñ§Éú
+	public Student findStudent(int id) {//æ ¹æ®å­¦å·æŸ¥è¯¢å­¦ç”Ÿ
 		Student student=new Student();
 		String sql="select * from "+Student.tablename+" where id="+id;
 		student=new StudentDaoImpl().<Student>ExecuteQueryBySql(sql).get(0);
@@ -42,7 +42,7 @@ public class SelectResultBiz {
 	}
 	
 	
-	//¸ù¾İÊÔ¾í±àºÅ²éÑ¯ÊÔ¾íĞÅÏ¢
+	//æ ¹æ®è¯•å·ç¼–å·æŸ¥è¯¢è¯•å·ä¿¡æ¯
 	public Exampaper findExampaper(int id){
 		Exampaper exam=new Exampaper();
 		String sql="Select * from "+Exampaper.tablename+" where id="+id;
@@ -50,7 +50,7 @@ public class SelectResultBiz {
 		return exam;
 	}
 	
-	//²é¿´Äê¼¶µÄĞÅÏ¢
+	//æŸ¥çœ‹å¹´çº§çš„ä¿¡æ¯
 	public Classes findClasses(int id) {
 		Classes classes=new Classes();
 		String sql="select * from "+Classes.tablename+" where id="+id;

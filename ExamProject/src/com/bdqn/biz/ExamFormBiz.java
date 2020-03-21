@@ -11,10 +11,10 @@ import com.bdqn.data.impl.ExampaperDaoImpl;
 import com.bdqn.data.impl.QuestionDaoImpl;
 import com.bdqn.data.impl.ResultDaoImpl;
 
-//ÒµÎñ¿¼ÊÔ
+//ä¸šåŠ¡è€ƒè¯•
 public final class ExamFormBiz {
 	
-	public Exampaper findExampaper(int id) {//¸ù¾İ±àºÅ²éÑ¯Ö¸¶¨¿¼ÊÔµÄĞÅÏ¢
+	public Exampaper findExampaper(int id) {//æ ¹æ®ç¼–å·æŸ¥è¯¢æŒ‡å®šè€ƒè¯•çš„ä¿¡æ¯
 		Exampaper exam=new Exampaper();
 		
 		String sql="select * from Exampaper where id="+id;
@@ -22,12 +22,12 @@ public final class ExamFormBiz {
 		return exam;
 	}
 	
-	public List<Question> findQuestion(String id){//¸ù¾İÊÔÌâ±àºÅ²éÑ¯Ö¸¶¨µÄĞÅÏ¢
+	public List<Question> findQuestion(String id){//æ ¹æ®è¯•é¢˜ç¼–å·æŸ¥è¯¢æŒ‡å®šçš„ä¿¡æ¯
 		List<Question>listQuestion=new ArrayList<Question>();
 		String sql="select * from question";		
-		String sql1=id.replaceAll("\\*","=");//Ìæ»»
+		String sql1=id.replaceAll("\\*","=");//æ›¿æ¢
 
-		String []queid=sql1.split("=");//·Ö¸î
+		String []queid=sql1.split("=");//åˆ†å‰²
 		if(!(id.equals(""))) {
 			sql="select * from question where";
 			for(int i=0;i<queid.length;i++) {
@@ -42,10 +42,10 @@ public final class ExamFormBiz {
 		return listQuestion;
 	}
 	
-	//±£´æ³É¼¨
+	//ä¿å­˜æˆç»©
 	public  boolean doResult(Result result) {
 		boolean isFlag=false;
-		result.setDatetime(time());//»ñµÃÊ±¼ä
+		result.setDatetime(time());//è·å¾—æ—¶é—´
 		String sql=String.format("INsert INTO "+Result.tablename+"(stuid,examname,`option`,score,datetime) values(%d,'%s','%s',%5.1f,'%s')"
 				,result.getStuid(),result.getExamname(),result.getOption(),result.getScore(),result.getDatetime());
 		isFlag=new ResultDaoImpl().InsertBySql(sql);
@@ -53,7 +53,7 @@ public final class ExamFormBiz {
 		return isFlag;
 	}
 	
-	//»ñÈ¡µ±Ç°Ê±¼ä
+	//è·å–å½“å‰æ—¶é—´
 		public String time() {
 			Date date=new Date();
 			//SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -61,11 +61,11 @@ public final class ExamFormBiz {
 			return date.toString();
 		}
 		
-	//»ñµÃ°à¼¶Í¬Ê±»ñµÃÊÔ¾í
+	//è·å¾—ç­çº§åŒæ—¶è·å¾—è¯•å·
 		
-	public Exampaper findClasses(int id) {//»ñµÃÑ§ÉúËùÔÚµÄ°à¼¶
+	public Exampaper findClasses(int id) {//è·å¾—å­¦ç”Ÿæ‰€åœ¨çš„ç­çº§
 		String sql="select * from exampaper where classid in (select cid from Student where id="+id+");";
-		return new ExampaperDaoImpl().<Exampaper>ExecuteQueryBySql(sql).get(0);//»ñµÃµÚÒ»ÕÂÊÔ¾í
+		return new ExampaperDaoImpl().<Exampaper>ExecuteQueryBySql(sql).get(0);//è·å¾—ç¬¬ä¸€ç« è¯•å·
 		
 	}
 		

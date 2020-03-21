@@ -10,30 +10,30 @@ import com.bdqn.ui.MainDialog;
 public final class LoginBiz {
 	private LoginBiz() {};
 	
-	//µÇÂ¼
+	//ç™»å½•
 	@SuppressWarnings("static-access")
 	public static void Login(String id,String passWord,boolean teacherSelectStutus) {
 		if(id.equals("")||passWord.equals("")) {
-			MainDialog.DefaultMessage("ÕËºÅÃÜÂë²»ÄÜÎª¿Õ");
+			MainDialog.DefaultMessage("è´¦å·å¯†ç ä¸èƒ½ä¸ºç©º");
 			return ;
 		}
 		if(teacherSelectStutus) {
 			if(new TeacherDaoImpl().<Teacher>ExecuteQueryBySql("select * from "+Teacher.tablename+" where id="+id+" and password='"+passWord+"'").size()>0) {
 				MainFunction.MainPanelType=1; 
 			}else{
-				MainDialog.DefaultMessage( "ÕËºÅ»òÕßÃÜÂë´íÎó!!");
+				MainDialog.DefaultMessage( "è´¦å·æˆ–è€…å¯†ç é”™è¯¯!!");
 			};
 		}else {
 			if(new StudentDaoImpl().<Student>ExecuteQueryBySql("select * from "+Student.tablename+" where id="+id+" and password='"+passWord+"'").size()>0) {
 				MainFunction.MainPanelType=2;
 				MainFunction.StudentId=Integer.parseInt(id);
 			}else{
-				MainDialog.DefaultMessage("ÕËºÅ»òÕßÃÜÂë´íÎó!!");
+				MainDialog.DefaultMessage("è´¦å·æˆ–è€…å¯†ç é”™è¯¯!!");
 			};
 		}
 	}
 	
-	//µÈ´ıÓÃ»§½øÈë³ÌĞò 
+	//ç­‰å¾…ç”¨æˆ·è¿›å…¥ç¨‹åº 
 	public static void WaitLogin() {
 		while(MainFunction.MainPanelType==0) {
 			try {

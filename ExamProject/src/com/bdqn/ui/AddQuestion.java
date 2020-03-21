@@ -19,16 +19,16 @@ import com.bdqn.data.impl.BookDaoImpl;
 import com.bdqn.data.impl.ChapterDaoImpl;
 import com.bdqn.data.impl.MajorDaoImpl;
 
-// ½ÌÊ¦Ö®Â¼ÈëÊÔÌâ
+// æ•™å¸ˆä¹‹å½•å…¥è¯•é¢˜
 @SuppressWarnings("serial")
 public class AddQuestion extends MainBusinessPanel {
 	
 
 	public AddQuestion() {
 		lblTitle.setBounds(50,50,200,60);
-		lblTitle.setFont(new Font("Î¢ÈíÑÅºÚ",1,30));
+		lblTitle.setFont(new Font("å¾®è½¯é›…é»‘",1,30));
 		jp.add(lblTitle);
-		init();//³õÊ¼»¯Êı¾İ
+		init();//åˆå§‹åŒ–æ•°æ®
 		jpl=addJpanel();
 		
 		cboMajor.addItemListener(new ItemListener() {
@@ -54,22 +54,22 @@ public class AddQuestion extends MainBusinessPanel {
 		
 	}
 		
-	//·Ç¿Õ·½·¨
+	//éç©ºæ–¹æ³•
 	public boolean isNotNull() {
 		if(textTitle.getText().trim().equals("")) {
-			JOptionPane.showMessageDialog(AddQuestion.this,"ÇëÊäÈëÌâÄ¿±êÌâ");
-			textTitle.requestFocus();//»ñÈ¡½¹µã
+			JOptionPane.showMessageDialog(AddQuestion.this,"è¯·è¾“å…¥é¢˜ç›®æ ‡é¢˜");
+			textTitle.requestFocus();//è·å–ç„¦ç‚¹
 			return false;
 		}else if(textoptionA.getText().trim().equals("")){
-			JOptionPane.showMessageDialog(AddQuestion.this,"ÇëÊäÈëÑ¡Ïî");
+			JOptionPane.showMessageDialog(AddQuestion.this,"è¯·è¾“å…¥é€‰é¡¹");
 			textoptionA.requestFocus();
 			return false;
 		}else if(textArea.getText().trim().equals("")) {
-			JOptionPane.showMessageDialog(AddQuestion.this,"ÇëÊäÈë´ğ°¸");
+			JOptionPane.showMessageDialog(AddQuestion.this,"è¯·è¾“å…¥ç­”æ¡ˆ");
 			textArea.requestFocus();
 			return false;
 		}else  if(textArea1.getText().trim().equals("")){
-			JOptionPane.showMessageDialog(AddQuestion.this,"ÇëÊäÈë½âÎö");
+			JOptionPane.showMessageDialog(AddQuestion.this,"è¯·è¾“å…¥è§£æ");
 			textArea1.requestFocus();
 			return false;
 		}else {
@@ -77,60 +77,60 @@ public class AddQuestion extends MainBusinessPanel {
 		}
 	}
 	
-	 JPanel jp=new JPanel();//ÈİÆ÷//×î´óµÄ
-	 JLabel lblTitle=new JLabel("Â¼ÈëÌâÄ¿");
-	 JPanel jpl=new JPanel();//ÖĞ¼äÄÚÈİ
+	 JPanel jp=new JPanel();//å®¹å™¨//æœ€å¤§çš„
+	 JLabel lblTitle=new JLabel("å½•å…¥é¢˜ç›®");
+	 JPanel jpl=new JPanel();//ä¸­é—´å†…å®¹
 	
-	 JLabel lbltitle=new JLabel("ÌâÄ¿£º");//ÌâÄ¿
-	 TextArea textTitle=new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);//ÌâÄ¿ÎÄ±¾¿ò
-	 JLabel lbloption=new JLabel("Ñ¡Ïî£º");
+	 JLabel lbltitle=new JLabel("é¢˜ç›®ï¼š");//é¢˜ç›®
+	 TextArea textTitle=new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);//é¢˜ç›®æ–‡æœ¬æ¡†
+	 JLabel lbloption=new JLabel("é€‰é¡¹ï¼š");
 	 TextArea textoptionA=new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	 JScrollPane jsoption=new JScrollPane();
 	 
-	 JLabel lblArea=new JLabel("´ğ°¸£º");
+	 JLabel lblArea=new JLabel("ç­”æ¡ˆï¼š");
 	 TextArea textArea=new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	 
-	 JLabel lbljx=new JLabel("½âÎö£º");
+	 JLabel lbljx=new JLabel("è§£æï¼š");
 	 TextArea textArea1=new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	 
-	 JLabel lblmajor=new JLabel("×¨Òµ£º");
+	 JLabel lblmajor=new JLabel("ä¸“ä¸šï¼š");
 	 JComboBox<String> cboMajor;
 	 
-	 JLabel lblbook=new JLabel("ÊéÄ¿£º");
-	 String str[]= {"ÇëÑ¡Ôñ","µÚÒ»ÕÂ½Ú"};
+	 JLabel lblbook=new JLabel("ä¹¦ç›®ï¼š");
+	 String str[]= {"è¯·é€‰æ‹©","ç¬¬ä¸€ç« èŠ‚"};
 	 JComboBox<String> cbobook;
 	 
-	 JLabel lblsetion=new JLabel("ÕÂ½Ú");
+	 JLabel lblsetion=new JLabel("ç« èŠ‚");
 	 JComboBox<String> cbosection;
 	 
-	 JButton btnSubmit=new JButton("Ìá½»:");
-	 JButton btnEmpty=new JButton("Çå¿Õ:");
+	 JButton btnSubmit=new JButton("æäº¤:");
+	 JButton btnEmpty=new JButton("æ¸…ç©º:");
 	
-	 //³õÊ¼»¯
+	 //åˆå§‹åŒ–
 	 public void init() {
 		 
 		 List<Major>listMajor=new MajorDaoImpl().ExecuteQueryBySql("select * from "+Major.tablename+" order by id");
 		 List<String>majorName=new ArrayList<String>();
-		 //majorName.add("ÇëÑ¡Ôñ");
+		 //majorName.add("è¯·é€‰æ‹©");
 		 for(Major m:listMajor) {
 			 majorName.add(m.getName());
 		 }
 		 cboMajor=new JComboBox<String>(majorName.toArray(new String[majorName.size()]));
 		 
-		 List<Book>listBok=new BookDaoImpl().ExecuteQueryBySql("select * from "+Book.tablename+" order by id");//»ñÈ¡ËùÓĞµÄÊéÄ¿
+		 List<Book>listBok=new BookDaoImpl().ExecuteQueryBySql("select * from "+Book.tablename+" order by id");//è·å–æ‰€æœ‰çš„ä¹¦ç›®
 		 List<String>bookString=new ArrayList<String>();
-		 //bookString.add("ÇëÑ¡Ôñ");
+		 //bookString.add("è¯·é€‰æ‹©");
 		 for(Book b:listBok) {
-			 bookString.add(b.getName());//»ñµÃËùÓĞÊéÄ¿µÄÃû³Æ
+			 bookString.add(b.getName());//è·å¾—æ‰€æœ‰ä¹¦ç›®çš„åç§°
 		 }
 		 cbobook=new JComboBox<String>(bookString.toArray(new String[bookString.size()]));
 		 
 		 
-		 List<Chapter>listChapter=new ChapterDaoImpl().ExecuteQueryBySql("select * from "+Chapter.tablename+" order by id");//»ñÈ¡ËùÓĞµÄÕÂ½Ú
+		 List<Chapter>listChapter=new ChapterDaoImpl().ExecuteQueryBySql("select * from "+Chapter.tablename+" order by id");//è·å–æ‰€æœ‰çš„ç« èŠ‚
 		 List<String>chapterString=new ArrayList<String>();
-		 //chapterString.add("ÇëÑ¡Ôñ");
+		 //chapterString.add("è¯·é€‰æ‹©");
 		 for(Chapter b:listChapter) {
-			 chapterString.add(b.getName());//»ñµÃËùÓĞÊéÄ¿µÄÃû³Æ
+			 chapterString.add(b.getName());//è·å¾—æ‰€æœ‰ä¹¦ç›®çš„åç§°
 		 }
 		 cbosection=new JComboBox<String>(chapterString.toArray(new String[chapterString.size()]));
 		 
@@ -141,107 +141,107 @@ public class AddQuestion extends MainBusinessPanel {
 		jpl.setLayout(null);
 		jpl.setOpaque(false);
 		
-		JLabel lbltitle=new JLabel("ÌâÄ¿£º");//ÌâÄ¿
-		lbltitle.setBounds(10,20,60,40);//ÌâÄ¿×ø±ê¼°´óĞ¡
+		JLabel lbltitle=new JLabel("é¢˜ç›®ï¼š");//é¢˜ç›®
+		lbltitle.setBounds(10,20,60,40);//é¢˜ç›®åæ ‡åŠå¤§å°
 		lbltitle.setFont(typeface());
 		
 		textTitle.setFont(typeface());
-		textTitle.setBounds(80,13,550,60);//ÌâÄ¿×ø±ê¼°´óĞ¡
+		textTitle.setBounds(80,13,550,60);//é¢˜ç›®åæ ‡åŠå¤§å°
 		textTitle.setColumns(5);
 		
 		
-		//Ñ¡Ïî
-		lbloption.setFont(typeface());//»ñÈ¡×ÖÌå
+		//é€‰é¡¹
+		lbloption.setFont(typeface());//è·å–å­—ä½“
 		lbloption.setBounds(10,100,60,40);
 		
-		//Ñ¡ÏîÎÄ±¾¿ò
+		//é€‰é¡¹æ–‡æœ¬æ¡†
 		
-		//Ñ¡ÏîÎÄ±¾¿ò×ø±ê¼°´óĞ¡
+		//é€‰é¡¹æ–‡æœ¬æ¡†åæ ‡åŠå¤§å°
 		textoptionA.setBounds(80,100,550,100);
 		
-		//Ñ¡ÏîÎÄ±¾¿òÑùÊ½
+		//é€‰é¡¹æ–‡æœ¬æ¡†æ ·å¼
 		textoptionA.setFont(typeface());
 		
 		
-		//´ğ°¸
+		//ç­”æ¡ˆ
 
-		lblArea.setFont(typeface());//»ñµÃ×ÖÌåÑùÊ½
+		lblArea.setFont(typeface());//è·å¾—å­—ä½“æ ·å¼
 		lblArea.setBounds(10,226,60,40);
 		
-		//´ğ°¸ÎÄ±¾¿ò
+		//ç­”æ¡ˆæ–‡æœ¬æ¡†
 
 		textArea.setBounds(80,230,550,40);
 		textArea.setFont(typeface());
-		//²»ÏÔÊ¾±ß¿ò
-		//½âÎö
+		//ä¸æ˜¾ç¤ºè¾¹æ¡†
+		//è§£æ
 
 		
-		lbljx.setFont(typeface());//»ñµÃ×ÖÌåÑùÊ½
+		lbljx.setFont(typeface());//è·å¾—å­—ä½“æ ·å¼
 		lbljx.setBounds(10,276,60,40);
 		
-		//½âÎöÎÄ±¾¿ò
+		//è§£ææ–‡æœ¬æ¡†
 
 		textArea1.setBounds(80,280,550,80);
 		textArea1.setFont(typeface());
 		textArea1.setColumns(5);
 		
 		
-		//×¨Òµ
+		//ä¸“ä¸š
 		
 		lblmajor.setFont(typeface());
 		lblmajor.setBounds(10,388,60,40);
 		
-		//×¨ÒµÏÂÀ­¿ò
+		//ä¸“ä¸šä¸‹æ‹‰æ¡†
 		
 		cboMajor.setFont(typeface());
 		cboMajor.setEditable(false);
 		cboMajor.setBounds(80,390,550,40);
 		
 		
-		//ÊéÄ¿
+		//ä¹¦ç›®
 		
 		
 		lblbook.setFont(typeface());
 		lblbook.setBounds(10,448,60,40);
 		
-		//ÊéÄ¿ÏÂÀ­¿ò
+		//ä¹¦ç›®ä¸‹æ‹‰æ¡†
 
 		cbobook.setFont(typeface());
 		cbobook.setEditable(false);
 		cbobook.setBounds(80,450,550,40);
 		
-		//ÕÂ½Ú
+		//ç« èŠ‚
 		
 		lblsetion.setFont(typeface());
 		lblsetion.setBounds(10,508,60,40);
 		
-		//ÕÂ½ÚÏÂÀ­¿ò
+		//ç« èŠ‚ä¸‹æ‹‰æ¡†
 		
 		
 		cbosection.setFont(typeface());
 		cbosection.setEditable(false);
 		cbosection.setBounds(80,510,550,40);
 		
-		//Ìá½»
+		//æäº¤
 	
 		
 		btnSubmit.setFont(typeface());
 		btnSubmit.setBounds(250,580,80,40);
 		
-		//Çå¿Õ
+		//æ¸…ç©º
 		
 		btnEmpty.setFont(typeface());
 		btnEmpty.setBounds(360,580,80,40);
 		
 		List<String>listtext=new ArrayList<String>();
 		
-		listtext.add(textTitle.getText());//±êÌâ
-		listtext.add(textoptionA.getText());//Ñ¡Ïî
-		listtext.add(textArea.getText());//´ğ°¸
-		listtext.add(textArea1.getText());//½âÎö
-		listtext.add(cboMajor.getSelectedItem().toString());//×¨ÒµÏÂÀ­¿ò
-		listtext.add(cbobook.getSelectedItem().toString());//ÊéÄ¿
-		listtext.add(cbosection.getSelectedItem().toString());//ÕÂ½Ú
+		listtext.add(textTitle.getText());//æ ‡é¢˜
+		listtext.add(textoptionA.getText());//é€‰é¡¹
+		listtext.add(textArea.getText());//ç­”æ¡ˆ
+		listtext.add(textArea1.getText());//è§£æ
+		listtext.add(cboMajor.getSelectedItem().toString());//ä¸“ä¸šä¸‹æ‹‰æ¡†
+		listtext.add(cbobook.getSelectedItem().toString());//ä¹¦ç›®
+		listtext.add(cbosection.getSelectedItem().toString());//ç« èŠ‚
 		jpl.add(lbljx);
 		jpl.add(textArea1);
 		jpl.add(btnEmpty);
@@ -254,7 +254,7 @@ public class AddQuestion extends MainBusinessPanel {
 		jpl.add(cboMajor);
 		jpl.add(lblArea);
 		jpl.add(textArea);
-		jpl.add(textoptionA);//Ñ¡Ïî
+		jpl.add(textoptionA);//é€‰é¡¹
 		
 		jpl.add(lbloption);
 		jpl.add(lbltitle);
@@ -266,9 +266,9 @@ public class AddQuestion extends MainBusinessPanel {
 	
 	
 	
-		//×ÖÌå·½·¨
+		//å­—ä½“æ–¹æ³•
 		public Font typeface() {
-			Font g=new Font("Î¢ÈíÑÅºÚ",1,18);
+			Font g=new Font("å¾®è½¯é›…é»‘",1,18);
 			return g;
 		}
 	
@@ -280,10 +280,10 @@ public class AddQuestion extends MainBusinessPanel {
 			public void actionPerformed(ActionEvent e) {
 				if(isNotNull()) {
 					Question q=new Question();
-					q.setTitle(textTitle.getText());//±êÌâ
-					q.setOption(textoptionA.getText());//Ñ¡Ïî
-					q.setSolution(textArea.getText());//´ğ°¸
-					q.setAnalysis(textArea1.getText());//½âÎö
+					q.setTitle(textTitle.getText());//æ ‡é¢˜
+					q.setOption(textoptionA.getText());//é€‰é¡¹
+					q.setSolution(textArea.getText());//ç­”æ¡ˆ
+					q.setAnalysis(textArea1.getText());//è§£æ
 					String ca=cbosection.getSelectedItem().toString();
 					q.setChapid(AddQuestionBiz.chapter(ca));
 					AddQuestionBiz.addQuestion(q);

@@ -1,13 +1,13 @@
 package com.bdqn.staticmeth;
 import com.bdqn.ui.MainBusinessPanel;
 
-//¶¯»­Ğ§¹û¼¯
+//åŠ¨ç”»æ•ˆæœé›†
 public final class Animation{
 	private Animation() {};
-	//ÇĞ»»panel¶¯»­ Ä¬ÈÏoldµÄvisibleÎªtrue newµÄÎªfalse
+	//åˆ‡æ¢panelåŠ¨ç”» é»˜è®¤oldçš„visibleä¸ºtrue newçš„ä¸ºfalse
 	public static void UpOrDownMovePanel(MainBusinessPanel oldpanel,MainBusinessPanel newpanel) {
-		int oneframetime=8;	//Ò»Ö¡ËùĞèÒªÅÜµÄÊ±¼ä
-		int animationtime=100;  //¶¯»­Ê±¼ä	ÎïÀíÉÏ
+		int oneframetime=8;	//ä¸€å¸§æ‰€éœ€è¦è·‘çš„æ—¶é—´
+		int animationtime=100;  //åŠ¨ç”»æ—¶é—´	ç‰©ç†ä¸Š
 		int framedistance=(oldpanel.getHeight()/(animationtime/oneframetime));
 		newpanel.setVisible(true);
 		if(newpanel.getLayers()>oldpanel.getLayers()) {

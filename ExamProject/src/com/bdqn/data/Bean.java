@@ -3,8 +3,8 @@ package com.bdqn.data;
 import java.util.List;
 
 import com.bdqn.staticmeth.DataBase;
-//Êı¾İÍ¨ÓÃÀà ¼Ì³ĞdaoÍ¨ÓÃ½Ó¿Ú ËùÓĞÊı¾İÊµÌåÀà¶¼»á¼Ì³ĞËû ËùÓĞimplÊı¾İÊµÏÖÀà¶¼»áÊ¹ÓÃËüµÄº¯Êı º¯Êı»áµ÷ÓÃimplÊµÏÖÀàËù¶ÔÓ¦µÄÊµÌåÀàÖĞµÄÊôĞÔÃû²éÑ¯Êı¾İ¿â
-//Ã¿Ìí¼ÓÒ»ÕÅ±íÖ»ĞèÒªÊµÌåÀà¼Ì³Ğbean ¶ÔÓ¦µÄdao½Ó¿ÚÖ»ĞèÒªĞ´¶ÀÌØĞèÇóµÄº¯Êı ¶ÔÓ¦µÄimplÖ»ĞèÒª¼Ì³ĞÊµÌåÀàÊµÏÖ¶ÔÓ¦dao½Ó¿ÚµÄ¶ÀÌØĞèÇó·½·¨
+//æ•°æ®é€šç”¨ç±» ç»§æ‰¿daoé€šç”¨æ¥å£ æ‰€æœ‰æ•°æ®å®ä½“ç±»éƒ½ä¼šç»§æ‰¿ä»– æ‰€æœ‰implæ•°æ®å®ç°ç±»éƒ½ä¼šä½¿ç”¨å®ƒçš„å‡½æ•° å‡½æ•°ä¼šè°ƒç”¨implå®ç°ç±»æ‰€å¯¹åº”çš„å®ä½“ç±»ä¸­çš„å±æ€§åæŸ¥è¯¢æ•°æ®åº“
+//æ¯æ·»åŠ ä¸€å¼ è¡¨åªéœ€è¦å®ä½“ç±»ç»§æ‰¿bean å¯¹åº”çš„daoæ¥å£åªéœ€è¦å†™ç‹¬ç‰¹éœ€æ±‚çš„å‡½æ•° å¯¹åº”çš„implåªéœ€è¦ç»§æ‰¿å®ä½“ç±»å®ç°å¯¹åº”daoæ¥å£çš„ç‹¬ç‰¹éœ€æ±‚æ–¹æ³•
 public abstract class Bean implements Dao{
 	public Bean() {};
 	public <T>List<T> ExecuteQueryBySql(String sql){
@@ -17,7 +17,7 @@ public abstract class Bean implements Dao{
 		return null;
 	}
 	
-	//É¾¸Ä
+	//åˆ æ”¹
 	public boolean UpdateBySql(String sql) {
 		try {
 			if(DataBase.UpdateBySql(sql)!=0) {
@@ -29,7 +29,7 @@ public abstract class Bean implements Dao{
 		}
 		return false;
 	}
-	//Ôö
+	//å¢
 	public boolean InsertBySql(String sql) {
 		try {
 			if(DataBase.UpdateBySql(sql)!=0) {

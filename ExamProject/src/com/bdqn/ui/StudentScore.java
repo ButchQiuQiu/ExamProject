@@ -22,20 +22,20 @@ public class StudentScore extends MainBusinessPanel{
 	public StudentScore() {
 		
 		
-		//±êÇ©ÎÄ±¾
-		JLabel stuId=new JLabel("Ñ§ ºÅ:"),
-				name=new JLabel("ĞÕ Ãû:"),
-				classes=new JLabel("°à ¼¶:"),
-				examName=new JLabel("ÊÔ ¾í Ãû:"),
-				score=new JLabel("³É ¼¨:"),
-				dataTime=new JLabel("Ê± ¼ä:");
+		//æ ‡ç­¾æ–‡æœ¬
+		JLabel stuId=new JLabel("å­¦ å·:"),
+				name=new JLabel("å§“ å:"),
+				classes=new JLabel("ç­ çº§:"),
+				examName=new JLabel("è¯• å· å:"),
+				score=new JLabel("æˆ ç»©:"),
+				dataTime=new JLabel("æ—¶ é—´:");
 		
-		stuId.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
-		name.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
-		classes.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
-		examName.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
-		score.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
-		dataTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20));
+		stuId.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
+		name.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
+		classes.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
+		examName.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
+		score.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
+		dataTime.setFont(new Font("å¾®è½¯é›…é»‘",Font.BOLD,20));
 		
 		stuId.setBounds(350, 80, 100, 40);
 		name.setBounds(350, 150, 100, 40);
@@ -44,7 +44,7 @@ public class StudentScore extends MainBusinessPanel{
 		score.setBounds(350, 360, 100, 40);
 		dataTime.setBounds(350, 430, 100, 40);
 		
-		//²éÑ¯½á¹û±êÇ©
+		//æŸ¥è¯¢ç»“æœæ ‡ç­¾
 		JLabel findStuId=new JLabel(),
 				findName=new JLabel(),
 				findClasses=new JLabel(),
@@ -52,12 +52,12 @@ public class StudentScore extends MainBusinessPanel{
 				findScore=new JLabel(),
 				findDataTime=new JLabel();
 		
-		findStuId.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
-		findName.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
-		findClasses.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
-		findExamName.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
-		findScore.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
-		findDataTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+		findStuId.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
+		findName.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
+		findClasses.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
+		findExamName.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
+		findScore.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
+		findDataTime.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
 		
 		findStuId.setBounds(450, 80, 500, 40);
 		findName.setBounds(450, 150, 500, 40);
@@ -93,7 +93,7 @@ public class StudentScore extends MainBusinessPanel{
 		scores=new ResultDaoImpl().ExecuteQueryBySql(scoreSql);
 		for(Result re:scores) {
 			findExamName.setText(re.getExamname());
-			findScore.setText(String.valueOf(re.getScore()+"·Ö"));
+			findScore.setText(String.valueOf(re.getScore()+"åˆ†"));
 			findDataTime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(re.getDatetime())));
 			break;
 		}

@@ -46,9 +46,9 @@ public final class StartExamBiz {
 		String upSql="update "+Exampaper.tablename+" set time="+time+",date='"+dataTime+"' where id="+examprId;
 		boolean isUpdate=new ExampaperDaoImpl().UpdateBySql(upSql);
 		if(isUpdate) {
-			new MainDialog().showMessageDialog(null, "Ê±¼äÒÑÌí¼Ó£¬ÇëÍ¨Öª¿¼ÊÔ°à¼¶£¡");
+			new MainDialog().showMessageDialog(null, "æ—¶é—´å·²æ·»åŠ ï¼Œè¯·é€šçŸ¥è€ƒè¯•ç­çº§ï¼");
 		}else {
-			new MainDialog().showMessageDialog(null, "¿¼ÊÔÊ±¼äÌí¼ÓÊ§°Ü£¡");
+			new MainDialog().showMessageDialog(null, "è€ƒè¯•æ—¶é—´æ·»åŠ å¤±è´¥ï¼");
 		}
 	}
 }

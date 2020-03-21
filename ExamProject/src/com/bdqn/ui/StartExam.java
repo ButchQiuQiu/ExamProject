@@ -22,14 +22,14 @@ import com.bdqn.data.impl.ExampaperDaoImpl;
 import com.bdqn.data.impl.MajorDaoImpl;
 
 /*
- * ¿ªÊ¼¿¼ÊÔ
+ * å¼€å§‹è€ƒè¯•
  */
 @SuppressWarnings("serial")
 public class StartExam extends MainBusinessPanel {
 
 	public StartExam() {
-		JLabel jlDate = new JLabel("¿ª¿¼Ê±¼ä£º");
-		jlDate.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlDate = new JLabel("å¼€è€ƒæ—¶é—´ï¼š");
+		jlDate.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlDate.setBounds(230,120,150,30);
 		this.add(jlDate);
         SpinnerDateModel model = new SpinnerDateModel();
@@ -41,12 +41,12 @@ public class StartExam extends MainBusinessPanel {
         year.setBounds(380, 120, 350, 30);
         this.add(year);
 		
-		JLabel jlMajor = new JLabel("×¨Òµ£º");
-		jlMajor.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlMajor = new JLabel("ä¸“ä¸šï¼š");
+		jlMajor.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlMajor.setBounds(230,190,150,30);
 		this.add(jlMajor);
 		
-		JComboBox<String> jcbMajor=new JComboBox<String>();//´´½¨×¨ÒµÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbMajor=new JComboBox<String>();//åˆ›å»ºä¸“ä¸šä¸‹æ‹‰åˆ—è¡¨
 		List<Major>  majors=new ArrayList<Major>();
 		majors=new MajorDaoImpl().ExecuteQueryBySql("select * from "+Major.tablename);
 		List<String> majornames=new ArrayList<String>();
@@ -59,12 +59,12 @@ public class StartExam extends MainBusinessPanel {
 		this.add(jcbMajor);
 		
 		
-		JLabel jlClasses = new JLabel("¿¼ÊÔ°à¼¶£º");
-		jlClasses.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlClasses = new JLabel("è€ƒè¯•ç­çº§ï¼š");
+		jlClasses.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlClasses.setBounds(230,260,150,30);
 		this.add(jlClasses);
 		
-		JComboBox<String> jcbClasses = new JComboBox<>();//´´½¨¿¼ÊÔ°à¼¶ÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbClasses = new JComboBox<>();//åˆ›å»ºè€ƒè¯•ç­çº§ä¸‹æ‹‰åˆ—è¡¨
 		List<Classes> classess = new ArrayList<Classes>();
 		classess = new ClassesDaoImpl().ExecuteQueryBySql("select * from "+Classes.tablename+" where mid="+majors.get(0).getId());
 		List<String> classesnames = new ArrayList<String>();
@@ -77,12 +77,12 @@ public class StartExam extends MainBusinessPanel {
 		this.add(jcbClasses);
 		
 		
-		JLabel jlExampaper = new JLabel("ÊÔ¾í£º");
-		jlExampaper.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlExampaper = new JLabel("è¯•å·ï¼š");
+		jlExampaper.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlExampaper.setBounds(230,330,150,30);
 		this.add(jlExampaper);
 		
-		JComboBox<String> jcbExampaper = new JComboBox<>();//´´½¨ÊÔ¾íÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbExampaper = new JComboBox<>();//åˆ›å»ºè¯•å·ä¸‹æ‹‰åˆ—è¡¨
 		List<Exampaper> exampapers = new ArrayList<Exampaper>();
 		exampapers = new ExampaperDaoImpl().ExecuteQueryBySql("select * from "+Exampaper.tablename+""
 				+ " where classid=ANY (select id from "+Classes.tablename+" where name='"+jcbClasses.getItemAt(0)+"')");
@@ -99,14 +99,14 @@ public class StartExam extends MainBusinessPanel {
 		this.add(jcbExampaper);
 
 	
-		JLabel jlTime = new JLabel("¿¼ÊÔÓÃÊ±£º");
+		JLabel jlTime = new JLabel("è€ƒè¯•ç”¨æ—¶ï¼š");
 		jlTime.setBounds(230,400,150,30);
-		jlTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		jlTime.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlTime);
         
-        JTextField jtTime = new JTextField();//ÉèÖÃÎÄ±¾¿ò
+        JTextField jtTime = new JTextField();//è®¾ç½®æ–‡æœ¬æ¡†
         jtTime.setBounds(380,400,280,30);
-        jtTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+        jtTime.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
         jtTime.addKeyListener(new KeyListener() {
 
 			@Override
@@ -128,39 +128,39 @@ public class StartExam extends MainBusinessPanel {
 			}});
         this.add(jtTime);
         
-        JLabel jlMinute = new JLabel("·ÖÖÓ");
+        JLabel jlMinute = new JLabel("åˆ†é’Ÿ");
         jlMinute.setBounds(680,400,150,30);
-        jlMinute.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+        jlMinute.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlMinute);
 		
         
-		JButton btn=new JButton("È·ÈÏ");
-		btn.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,25));
+		JButton btn=new JButton("ç¡®è®¤");
+		btn.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,25));
 		btn.setBounds(450, 490, 100, 40);
-		btn.addActionListener(new ActionListener() { //¼àÌı
+		btn.addActionListener(new ActionListener() { //ç›‘å¬
 			@SuppressWarnings("static-access")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(!jtTime.getText().equals("")) {
 					if(Integer.parseInt(jtTime.getText())>0&&Integer.parseInt(jtTime.getText())<=150) {
 						if(jcbExampaper.getSelectedItem()==null) {
-							MainDialog.DefaultMessage("µ±Ç°°à¼¶Ã»ÓĞÊÔ¾í");
+							MainDialog.DefaultMessage("å½“å‰ç­çº§æ²¡æœ‰è¯•å·");
 							return;
 						}
 						StartExamBiz.addEaxmpaperTime(((DefaultEditor) year.getEditor()).getTextField().getText(), jcbClasses.getSelectedItem().toString(), 
 								jcbExampaper.getSelectedItem().toString(), jtTime.getText());
 					}else {
-						new MainDialog().showMessageDialog(null, "¿¼ÊÔÊ±³¤·¶Î§Îª1~150·ÖÖÓ£¡");
+						new MainDialog().showMessageDialog(null, "è€ƒè¯•æ—¶é•¿èŒƒå›´ä¸º1~150åˆ†é’Ÿï¼");
 					}
 				}else {
-					new MainDialog().showMessageDialog(null, "¿¼ÊÔÊ±³¤²»ÄÜÎª¿Õ£¡");
+					new MainDialog().showMessageDialog(null, "è€ƒè¯•æ—¶é•¿ä¸èƒ½ä¸ºç©ºï¼");
 				}
 			}
 		});
 		this.add(btn);
 		
 		
-		//ÏÂÀ­ÁĞ±íÊÂ¼ş
+		//ä¸‹æ‹‰åˆ—è¡¨äº‹ä»¶
 		jcbMajor.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				//jcbExampaper.removeAllItems();
@@ -169,7 +169,7 @@ public class StartExam extends MainBusinessPanel {
 			}
 		});
 		
-		//ÏÂÀ­ÁĞ±íÊÂ¼ş
+		//ä¸‹æ‹‰åˆ—è¡¨äº‹ä»¶
 		jcbClasses.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				StartExamBiz.SelectComboBox(null, jcbClasses, jcbExampaper);

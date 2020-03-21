@@ -10,16 +10,16 @@ import javax.swing.JButton;
 import com.bdqn.mainfunction.MainFunction;
 
 @SuppressWarnings("serial")
-//继承Jbutton 传入对应的panel 并且传入所有其他的panel 用list<JPanel>
+//缁ф壙Jbutton 浼犲叆瀵瑰簲鐨刾anel 骞朵笖浼犲叆鎵�鏈夊叾浠栫殑panel 鐢╨ist<JPanel>
 public class MainButton extends JButton{
 	private String panelName;
 	private MainButton() {
 		super();
 		this.setLayout(null);
-		this.setContentAreaFilled(false);				//设置按钮透明
-		this.setBorderPainted(false);  				    //设置边框透明
-		this.setFocusPainted(false);  					//设置text边框透明
-		this.setFont(new Font("微软雅黑",Font.ITALIC,25));//设置字体
+		this.setContentAreaFilled(false);				//璁剧疆鎸夐挳閫忔槑
+		this.setBorderPainted(false);  				    //璁剧疆杈规閫忔槑
+		this.setFocusPainted(false);  					//璁剧疆text杈规閫忔槑
+		this.setFont(new Font("寰蒋闆呴粦",Font.ITALIC,25));//璁剧疆瀛椾綋
 		this.setForeground(Color.WHITE);			
 	}
 	

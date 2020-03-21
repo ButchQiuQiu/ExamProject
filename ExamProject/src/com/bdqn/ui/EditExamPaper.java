@@ -23,7 +23,7 @@ import com.bdqn.data.impl.ClassesDaoImpl;
 import com.bdqn.data.impl.MajorDaoImpl;
 
 /*
- * Éú³ÉÊÔ¾í
+ * ç”Ÿæˆè¯•å·
  * 
  */
 @SuppressWarnings("serial")
@@ -31,14 +31,14 @@ public class EditExamPaper extends MainBusinessPanel {
 
 
 	public EditExamPaper() {
-		JLabel jlExampaperId = new JLabel("ÊÔ¾íID£º");
+		JLabel jlExampaperId = new JLabel("è¯•å·IDï¼š");
 		jlExampaperId.setBounds(230,150,150,30);
-		jlExampaperId.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		jlExampaperId.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlExampaperId);
         
-        JTextField jtExampaperId = new JTextField();//ÉèÖÃÎÄ±¾¿ò
+        JTextField jtExampaperId = new JTextField();//è®¾ç½®æ–‡æœ¬æ¡†
         jtExampaperId.setBounds(380,150,350,30);
-        jtExampaperId.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+        jtExampaperId.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
         jtExampaperId.addKeyListener(new KeyListener() {
 
 			@Override
@@ -61,25 +61,25 @@ public class EditExamPaper extends MainBusinessPanel {
         this.add(jtExampaperId);
         
         
-        JLabel jlExampaperName = new JLabel("ÊÔ¾íÃû×Ö£º");
+        JLabel jlExampaperName = new JLabel("è¯•å·åå­—ï¼š");
         jlExampaperName.setBounds(230,200,150,30);
-        jlExampaperName.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+        jlExampaperName.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlExampaperName);
 		
-        JTextField jtExampaperName = new JTextField();//ÉèÖÃÎÄ±¾¿ò
+        JTextField jtExampaperName = new JTextField();//è®¾ç½®æ–‡æœ¬æ¡†
         jtExampaperName.setBounds(380,200,350,30);
-        jtExampaperName.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+        jtExampaperName.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
         this.add(jtExampaperName);
         
         
-        JLabel jlTotal = new JLabel("×Ü·Ö£º");
+        JLabel jlTotal = new JLabel("æ€»åˆ†ï¼š");
         jlTotal.setBounds(230,250,150,30);
-        jlTotal.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+        jlTotal.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlTotal); 
 		
-        JTextField jtTotal = new JTextField();//ÉèÖÃÎÄ±¾¿ò
+        JTextField jtTotal = new JTextField();//è®¾ç½®æ–‡æœ¬æ¡†
         jtTotal.setBounds(380,250,350,30);
-        jtTotal.setFont(new Font("¿¬Ìå",Font.PLAIN,20));
+        jtTotal.setFont(new Font("æ¥·ä½“",Font.PLAIN,20));
         jtTotal.addKeyListener(new KeyListener() {
 
 			@Override
@@ -102,12 +102,12 @@ public class EditExamPaper extends MainBusinessPanel {
         this.add(jtTotal);
         
         
-		JLabel jlMajor = new JLabel("×¨Òµ£º");
-		jlMajor.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlMajor = new JLabel("ä¸“ä¸šï¼š");
+		jlMajor.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlMajor.setBounds(230,300,150,30);
 		this.add(jlMajor);
 		
-		JComboBox<String> jcbMajor=new JComboBox<String>();//´´½¨×¨ÒµÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbMajor=new JComboBox<String>();//åˆ›å»ºä¸“ä¸šä¸‹æ‹‰åˆ—è¡¨
 		List<Major>  majors=new ArrayList<Major>();
 		majors=new MajorDaoImpl().ExecuteQueryBySql("select * from "+Major.tablename);
 		List<String> majornames=new ArrayList<String>();
@@ -120,12 +120,12 @@ public class EditExamPaper extends MainBusinessPanel {
 		this.add(jcbMajor);
 		
 		
-		JLabel jlBook = new JLabel("ÊéÃû£º");
-		jlBook.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlBook = new JLabel("ä¹¦åï¼š");
+		jlBook.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlBook.setBounds(230,350,150,30);
 		this.add(jlBook);
 		
-		JComboBox<String> jcbBook = new JComboBox<>();//´´½¨ÊéÃûÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbBook = new JComboBox<>();//åˆ›å»ºä¹¦åä¸‹æ‹‰åˆ—è¡¨
 		List<Book> books = new ArrayList<Book>();
 		books = new BookDaoImpl().ExecuteQueryBySql(
 				"select * from "+Book.tablename+" where mid=ANY("+"select id from "+Major.tablename+" where name='"+jcbMajor.getItemAt(0)+"')");
@@ -139,12 +139,12 @@ public class EditExamPaper extends MainBusinessPanel {
 		this.add(jcbBook);
 		
 		
-		JLabel jlChapter = new JLabel("ÕÂ½Ú£º");
-		jlChapter.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlChapter = new JLabel("ç« èŠ‚ï¼š");
+		jlChapter.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlChapter.setBounds(230,400,150,30);
 		this.add(jlChapter);
 		
-		JComboBox<String> jcbChapter = new JComboBox<>();//´´½¨Êé±¾ÕÂ½ÚÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbChapter = new JComboBox<>();//åˆ›å»ºä¹¦æœ¬ç« èŠ‚ä¸‹æ‹‰åˆ—è¡¨
 		List<Chapter> chapters = new ArrayList<Chapter>();
 		chapters = new ChapterDaoImpl().ExecuteQueryBySql(
 				"select * from "+Chapter.tablename+" where mid=ANY(select id from "+Book.tablename+" where name='"+jcbBook.getItemAt(0)+"')");
@@ -157,11 +157,11 @@ public class EditExamPaper extends MainBusinessPanel {
 		jcbChapter.setBounds(380,400,350,30);
 		this.add(jcbChapter);
 		
-		JLabel jlClass = new JLabel("°à¼¶£º");
-		jlClass.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		JLabel jlClass = new JLabel("ç­çº§ï¼š");
+		jlClass.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
 		jlClass.setBounds(230,450,150,30);
 		this.add(jlClass);
-		JComboBox<String> jcbClass = new JComboBox<>();//´´½¨°à¼¶ÏÂÀ­ÁĞ±í
+		JComboBox<String> jcbClass = new JComboBox<>();//åˆ›å»ºç­çº§ä¸‹æ‹‰åˆ—è¡¨
 		List<Classes> classs = new ArrayList<Classes>();
 		classs = new ClassesDaoImpl().ExecuteQueryBySql(
 				"select * from "+Classes.tablename+" where mid=ANY(select id from "+Major.tablename+" where name='"+jcbMajor.getItemAt(0)+"')");
@@ -174,8 +174,8 @@ public class EditExamPaper extends MainBusinessPanel {
 		jcbClass.setBounds(380,450,350,30);
 		this.add(jcbClass);
 		
-		JButton btnDelete=new JButton("É¾³ı´Ë°à¼¶µÄÊÔ¾í");
-		btnDelete.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+		JButton btnDelete=new JButton("åˆ é™¤æ­¤ç­çº§çš„è¯•å·");
+		btnDelete.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
 		btnDelete.setBounds(740, 445, 200, 40);
 		btnDelete.addActionListener(new ActionListener() {
 			@Override
@@ -186,14 +186,14 @@ public class EditExamPaper extends MainBusinessPanel {
 		});
 		this.add(btnDelete);
 		
-		JLabel jlExampaperCount = new JLabel("ÌâÄ¿ÊıÁ¿£º");
+		JLabel jlExampaperCount = new JLabel("é¢˜ç›®æ•°é‡ï¼š");
 		jlExampaperCount.setBounds(230,500,150,30);
-		jlExampaperCount.setFont(new Font("Î¢ÈíÑÅºÚ",Font.CENTER_BASELINE,25));
+		jlExampaperCount.setFont(new Font("å¾®è½¯é›…é»‘",Font.CENTER_BASELINE,25));
         this.add(jlExampaperCount);
         
-        JTextField jtExampaperCount = new JTextField();//ÉèÖÃÎÄ±¾¿ò
+        JTextField jtExampaperCount = new JTextField();//è®¾ç½®æ–‡æœ¬æ¡†
         jtExampaperCount.setBounds(380,500,350,30);
-        jtExampaperCount.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+        jtExampaperCount.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
         jtExampaperCount.addKeyListener(new KeyListener() {
 
 			@Override
@@ -218,8 +218,8 @@ public class EditExamPaper extends MainBusinessPanel {
         this.add(jtExampaperCount);
 		
         
-		JButton btn=new JButton("ĞÂ½¨ÊÔ¾í");
-		btn.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+		JButton btn=new JButton("æ–°å»ºè¯•å·");
+		btn.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
 		btn.setBounds(330, 550, 150, 40);
 		btn.addActionListener(new ActionListener() {
 			@Override
@@ -232,8 +232,8 @@ public class EditExamPaper extends MainBusinessPanel {
 		});
 		this.add(btn);
 		
-		JButton btnAddQuestion=new JButton("Ôö¼ÓÌâÄ¿");
-		btnAddQuestion.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,20));
+		JButton btnAddQuestion=new JButton("å¢åŠ é¢˜ç›®");
+		btnAddQuestion.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,20));
 		btnAddQuestion.setBounds(550, 550, 150, 40);
 		btnAddQuestion.addActionListener(new ActionListener() {
 			@Override
@@ -244,7 +244,7 @@ public class EditExamPaper extends MainBusinessPanel {
 		});
 		this.add(btnAddQuestion);
 		
-		//ÏÂÀ­ÁĞ±íÊÂ¼ş
+		//ä¸‹æ‹‰åˆ—è¡¨äº‹ä»¶
 		jcbMajor.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				//jcbExampaper.removeAllItems();

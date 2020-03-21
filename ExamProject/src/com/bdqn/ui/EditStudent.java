@@ -42,10 +42,10 @@ public class EditStudent extends MainBusinessPanel{
 	
 	public EditStudent() {
 		
-		JRadioButton personal=new JRadioButton("¸ö ÈË");
-		JRadioButton classes=new JRadioButton("°à ¼¶");
-		personal.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,30));
-		classes.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,30));
+		JRadioButton personal=new JRadioButton("ä¸ª äºº");
+		JRadioButton classes=new JRadioButton("ç­ çº§");
+		personal.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,30));
+		classes.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,30));
 		personal.setBounds(300, 50, 110, 50);
 		classes.setBounds(550, 50, 110, 50);
 		personal.setSelected(true);
@@ -57,12 +57,12 @@ public class EditStudent extends MainBusinessPanel{
 		this.add(personal);
 		this.add(classes);
 		
-		JLabel jlabel=new JLabel("Ñ§ ºÅ/°à¼¶Ãû£º");
+		JLabel jlabel=new JLabel("å­¦ å·/ç­çº§åï¼š");
 		jlabel.setBounds(270, 130, 200, 50);
-		jlabel.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,20));
+		jlabel.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,20));
 		this.add(jlabel);
 		JTextField jtf=new JTextField();
-		jtf.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,20));
+		jtf.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,20));
 		jtf.setBounds(430, 130, 200, 50);
 		jtf.setBorder(BorderFactory.createBevelBorder(1));
 		jtf.addKeyListener(new KeyListener() {
@@ -87,21 +87,21 @@ public class EditStudent extends MainBusinessPanel{
 			}});
 		this.add(jtf);
 		
-		JLabel allStu=new JLabel("µã»÷·µ»Øµ½È«²¿Ñ§Éú£¡");
+		JLabel allStu=new JLabel("ç‚¹å‡»è¿”å›åˆ°å…¨éƒ¨å­¦ç”Ÿï¼");
 		allStu.setBounds(740, 190, 200, 30);
-		allStu.setFont(new Font("Î¢ÈíÑÅºÚ",Font.PLAIN,15));
+		allStu.setFont(new Font("å¾®è½¯é›…é»‘",Font.PLAIN,15));
 		allStu.setForeground(Color.WHITE);
 		
 		this.add(allStu);
 		
-		String[] col ={"Ñ§ ºÅ", "Ãû ×Ö","ÃÜ Âë","µØ Ö·","ÊÖ»úºÅ","°à ¼¶"};
+		String[] col ={"å­¦ å·", "å å­—","å¯† ç ","åœ° å€","æ‰‹æœºå·","ç­ çº§"};
 		JTable table=new JTable();
 		table.setRowHeight(25);
-		table.getTableHeader().setFont(new Font("ËÎÌå",Font.BOLD,15));
-		table.setFont(new Font("ËÎÌå",Font.PLAIN,15));
+		table.getTableHeader().setFont(new Font("å®‹ä½“",Font.BOLD,15));
+		table.setFont(new Font("å®‹ä½“",Font.PLAIN,15));
 		table.setBackground(Color.LIGHT_GRAY);
 		
-		//Ä¬ÈÏ¹ÜÀí¶şÎ¬±í¸ñÊı¾İµÄÊµÀı
+		//é»˜è®¤ç®¡ç†äºŒç»´è¡¨æ ¼æ•°æ®çš„å®ä¾‹
 		DefaultTableModel mm = new DefaultTableModel(col,0);
 		EditStudentBiz.findStudentAll(table, mm);
 		classess=cla.<Classes>ExecuteQueryBySql("select * from "+Classes.tablename);
@@ -112,9 +112,9 @@ public class EditStudent extends MainBusinessPanel{
 		JComboBox<String> claCbxs = new JComboBox<>(classessItems);
 		DefaultCellEditor claDcers = new DefaultCellEditor(claCbxs);
 		table.getColumnModel().getColumn(5).setCellEditor(claDcers);
-		//°ÑÊµÀı¼Óµ½±í¸ñ
+		//æŠŠå®ä¾‹åŠ åˆ°è¡¨æ ¼
 		/*
-		 * 	¶ÔÆë·½Ê½¾ÓÖĞ
+		 * 	å¯¹é½æ–¹å¼å±…ä¸­
 		 */
 		DefaultTableCellRenderer r = new DefaultTableCellRenderer(); 
 		r.setHorizontalAlignment(JLabel.CENTER); 
@@ -123,12 +123,12 @@ public class EditStudent extends MainBusinessPanel{
 		jsp1.setBounds(130, 220, 750, 350);
 		
 		JTable addtable=new JTable();
-		addtable.getTableHeader().setFont(new Font("ËÎÌå",Font.BOLD,15));
+		addtable.getTableHeader().setFont(new Font("å®‹ä½“",Font.BOLD,15));
 		addtable.setRowHeight(30);
-		addtable.setFont(new Font("ËÎÌå",Font.PLAIN,18));
+		addtable.setFont(new Font("å®‹ä½“",Font.PLAIN,18));
 		addtable.setBackground(Color.LIGHT_GRAY);
 		addtable.setDefaultRenderer(Object.class, r);
-		String[] cols ={"Ñ§ ºÅ", "Ãû ×Ö","ÃÜ Âë","µØ Ö·","ÊÖ»úºÅ","°à ¼¶"};
+		String[] cols ={"å­¦ å·", "å å­—","å¯† ç ","åœ° å€","æ‰‹æœºå·","ç­ çº§"};
 		DefaultTableModel mms= new DefaultTableModel(cols,1);
 		
 		addtable.setModel(mms);
@@ -146,23 +146,23 @@ public class EditStudent extends MainBusinessPanel{
 		
 		this.add(jsp);
 		
-		JButton findbtn=new JButton("²é ÕÒ");
-		findbtn.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,18));
+		JButton findbtn=new JButton("æŸ¥ æ‰¾");
+		findbtn.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,18));
 		findbtn.setBounds(650, 135, 100, 40);
 		this.add(findbtn);
 		
-		JButton addbtn=new JButton("Ìí ¼Ó");
-		addbtn.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,18));
+		JButton addbtn=new JButton("æ·» åŠ ");
+		addbtn.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,18));
 		addbtn.setBounds(890, 655, 90, 40);
 		this.add(addbtn);
 		
-		JButton upbtn=new JButton("ĞŞ ¸Ä");
-		upbtn.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,18));
+		JButton upbtn=new JButton("ä¿® æ”¹");
+		upbtn.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,18));
 		upbtn.setBounds(300, 590, 100, 40);
 		this.add(upbtn);
 		
-		JButton delbtn=new JButton("É¾ ³ı");
-		delbtn.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE,18));
+		JButton delbtn=new JButton("åˆ  é™¤");
+		delbtn.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE,18));
 		delbtn.setBounds(600, 590, 100, 40);
 		this.add(delbtn);
 		
@@ -226,14 +226,14 @@ public class EditStudent extends MainBusinessPanel{
 							isSelect=EditStudentBiz.findClass(table, mm, id);
 						}
 						if(!isSelect) {
-							new MainDialog().showMessageDialog(null, "Î´ÕÒµ½¸ÃÑ§ºÅºÍ°à¼¶!\nÇëÖØĞÂÊäÈë£¡");
+							new MainDialog().showMessageDialog(null, "æœªæ‰¾åˆ°è¯¥å­¦å·å’Œç­çº§!\nè¯·é‡æ–°è¾“å…¥ï¼");
 							EditStudentBiz.findStudentAll(table, mm);
 						}
 					}else {
-						new MainDialog().showMessageDialog(null, "ÊäÈëµÄÑ§ºÅ»ò°à¼¶²»¹æ·¶£¡");
+						new MainDialog().showMessageDialog(null, "è¾“å…¥çš„å­¦å·æˆ–ç­çº§ä¸è§„èŒƒï¼");
 					}
 				}else {
-					new MainDialog().showMessageDialog(null, "ÇëÊäÈëÑ§ºÅ»òÕß°à¼¶ºÅ£¡");
+					new MainDialog().showMessageDialog(null, "è¯·è¾“å…¥å­¦å·æˆ–è€…ç­çº§å·ï¼");
 				}
 			}
 		});
@@ -253,7 +253,7 @@ public class EditStudent extends MainBusinessPanel{
 		delbtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int num=MainDialog.showConfirmDialog(null, "    È·¶¨É¾³ı¸ÃĞÅÏ¢Âğ£¿", "Ìá Ê¾", 2, 1);
+				int num=MainDialog.showConfirmDialog(null, "    ç¡®å®šåˆ é™¤è¯¥ä¿¡æ¯å—ï¼Ÿ", "æ ç¤º", 2, 1);
 				if(num==0) {
 					EditStudentBiz.delStudent(table);
 				}

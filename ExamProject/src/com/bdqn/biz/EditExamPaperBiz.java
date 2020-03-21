@@ -19,11 +19,11 @@ import com.bdqn.data.impl.ExampaperDaoImpl;
 import com.bdqn.data.impl.MajorDaoImpl;
 import com.bdqn.data.impl.QuestionDaoImpl;
 import com.bdqn.ui.MainDialog;
-//É¾³ıÊÔ¾íid ²¢ÇÒ½âñîÊÔ¾íid Ìí¼ÓÌâÄ¿ÏÔÊ¾ 
+//åˆ é™¤è¯•å·id å¹¶ä¸”è§£è€¦è¯•å·id æ·»åŠ é¢˜ç›®æ˜¾ç¤º 
 
 public final class EditExamPaperBiz {
 	private static final int QUESTIONCOUNT=50;
-	//ÏÂÀ­À¸¸ü¸ÄÊÂ¼ş
+	//ä¸‹æ‹‰æ æ›´æ”¹äº‹ä»¶
 	public static void SelectComboBox(JComboBox<String> jcbMajor, JComboBox<String> jcbBook, JComboBox<String> jcbChapter,JComboBox<String> jcbClass) {
 		if(jcbMajor==null) {
 			int BookId=(new BookDaoImpl().<Book>ExecuteQueryBySql("select * from "+Book.tablename+" where name='"+jcbBook.getSelectedItem()+"'")).get(0).getId();
@@ -61,27 +61,27 @@ public final class EditExamPaperBiz {
 		jcbClass.setModel(new DefaultComboBoxModel<String>(classnames.toArray(new String[classnames.size()])));
 	}
 
-	//ĞÂ½¨ÊÔ¾í
+	//æ–°å»ºè¯•å·
 	public static void AddExamPaper(String id,String examName,String score,String chapterName,String className,String questionCount) {
 		if(id.equals("")||examName.equals("")||score.equals("")||questionCount.equals("")) {
-			MainDialog.DefaultMessage("ÊäÈëÀ¸²»ÄÜÎª¿Õ");
+			MainDialog.DefaultMessage("è¾“å…¥æ ä¸èƒ½ä¸ºç©º");
 			return;
 		}
 		
 		int classId=new ClassesDaoImpl().<Classes>ExecuteQueryBySql("select id from "+Classes.tablename+" where name='"+className+"'").get(0).getId();
 		if(new ExampaperDaoImpl().ExecuteQueryBySql("select * from "+Exampaper.tablename+" where id="+id+" or name='"+examName+"'").size()!=0) {
-			MainDialog.DefaultMessage("´ËÊÔ¾íÒÑ´æÔÚ ");
+			MainDialog.DefaultMessage("æ­¤è¯•å·å·²å­˜åœ¨ ");
 			return;
 		}else if(new ExampaperDaoImpl().ExecuteQueryBySql(
 				"select * from "+Exampaper.tablename+" where classid="+classId).size()!=0) {
-			MainDialog.DefaultMessage("´Ë°à¼¶ÒÑÓĞÒ»ÕÅÊÔ¾í ");
+			MainDialog.DefaultMessage("æ­¤ç­çº§å·²æœ‰ä¸€å¼ è¯•å· ");
 			return;
 		}
 		String questionsStr=null;
 		List <Question>questions=new ArrayList<Question>();
 		questions=new QuestionDaoImpl().ExecuteQueryBySql("select * from "+Question.tablename+" where chapid=ANY(select id from "+Chapter.tablename+" where name='"+chapterName+"')");
 		if(Integer.parseInt(questionCount)>questions.size()) {
-			MainDialog.DefaultMessage("´ËÕÂ½ÚµÄÌâÄ¿Ö»ÓĞ"+questions.size()+"¸ö,ÌâÄ¿ÊıÁ¿ÒªÉÙÓÚ"+questions.size()+"¸ö");
+			MainDialog.DefaultMessage("æ­¤ç« èŠ‚çš„é¢˜ç›®åªæœ‰"+questions.size()+"ä¸ª,é¢˜ç›®æ•°é‡è¦å°‘äº"+questions.size()+"ä¸ª");
 			return;
 		}
 		int temp=0;
@@ -95,21 +95,21 @@ public final class EditExamPaperBiz {
 		}
 		if(new ExampaperDaoImpl().InsertBySql("insert into "+Exampaper.tablename+" (id,name,qids,score,classid,count)values"
 				+ "("+id+",'"+examName+"','"+questionsStr+"',"+score+","+classId+","+questionCount+")")) {
-			MainDialog.DefaultMessage("Ìí¼ÓÊÔ¾í³É¹¦!");
+			MainDialog.DefaultMessage("æ·»åŠ è¯•å·æˆåŠŸ!");
 		}
 	}
 	
-	//É¾³ıÊÔ¾í
+	//åˆ é™¤è¯•å·
 	public static void DeleteExamPaper(String className) {
 		System.out.println("delete from "+Exampaper.tablename+" where classid=ANY(select id from where name='"+className+"')");
 		if(new ExampaperDaoImpl().UpdateBySql("delete from "+Exampaper.tablename+" where classid=ANY(select id from "+Classes.tablename+" where name='"+className+"')")) {
-			MainDialog.DefaultMessage("É¾³ıÊÔ¾í³É¹¦");
+			MainDialog.DefaultMessage("åˆ é™¤è¯•å·æˆåŠŸ");
 		}else {
-			MainDialog.DefaultMessage("É¾³ıÊÔ¾íÊ§°Ü Õâ¸ö°à¼¶Ã»ÓĞÊÔ¾í");
+			MainDialog.DefaultMessage("åˆ é™¤è¯•å·å¤±è´¥ è¿™ä¸ªç­çº§æ²¡æœ‰è¯•å·");
 		}
 	}
 
-	//Ôö¼ÓÌâÄ¿
+	//å¢åŠ é¢˜ç›®
 	public static void AddQuestion(String chapterName,String className,String questionCount) {
 		String tempSql="select * from "+Exampaper.tablename+" where classid=ANY(select id from "+Classes.tablename+" where name='"+className+"')";
 		
@@ -118,7 +118,7 @@ public final class EditExamPaperBiz {
 		List <Question>questions=new ArrayList<Question>();
 		questions=new QuestionDaoImpl().ExecuteQueryBySql("select * from "+Question.tablename+" where chapid=ANY(select id from "+Chapter.tablename+" where name='"+chapterName+"')");
 		if(Integer.parseInt(questionCount)>questions.size()) {
-			MainDialog.DefaultMessage("´ËÕÂ½ÚµÄÌâÄ¿Ö»ÓĞ"+questions.size()+"¸ö,²åÈëÌâÄ¿ÊıÁ¿ÒªÉÙÓÚ"+questions.size()+"¸ö");
+			MainDialog.DefaultMessage("æ­¤ç« èŠ‚çš„é¢˜ç›®åªæœ‰"+questions.size()+"ä¸ª,æ’å…¥é¢˜ç›®æ•°é‡è¦å°‘äº"+questions.size()+"ä¸ª");
 			return;
 		}
 		int temp=0;
@@ -130,18 +130,18 @@ public final class EditExamPaperBiz {
 			}
 			temp++;
 		}
-		//ÅĞ¶Ï¼ÓµÄÌâÄ¿ÊÇ·ñ³¬¹ı×î´ó
+		//åˆ¤æ–­åŠ çš„é¢˜ç›®æ˜¯å¦è¶…è¿‡æœ€å¤§
 		int allQuestioncount=questionsStr.length()-questionsStr.replaceAll("\\*", "").length();
 		if(allQuestioncount>50) {
-			MainDialog.DefaultMessage("ÌâÄ¿×ÜÊı²»ÄÜ³¬¹ı"+EditExamPaperBiz.QUESTIONCOUNT+"¸ö,ÒÑ¾­ÓĞ"+allQuestioncount+"µÀÌâÄ¿");
+			MainDialog.DefaultMessage("é¢˜ç›®æ€»æ•°ä¸èƒ½è¶…è¿‡"+EditExamPaperBiz.QUESTIONCOUNT+"ä¸ª,å·²ç»æœ‰"+allQuestioncount+"é“é¢˜ç›®");
 			return;
 		}
 		if(new ExampaperDaoImpl().UpdateBySql("update "+Exampaper.tablename+" set qids='"+questionsStr
 				+"' where classid=ANY(select id from "+Classes.tablename+" where name='"+className+"')")) {
 			
-			MainDialog.DefaultMessage("Ìí¼ÓÌâÄ¿³É¹¦");
+			MainDialog.DefaultMessage("æ·»åŠ é¢˜ç›®æˆåŠŸ");
 		}else {
-			MainDialog.DefaultMessage("Ìí¼ÓÌâÄ¿Ê§°Ü");
+			MainDialog.DefaultMessage("æ·»åŠ é¢˜ç›®å¤±è´¥");
 		}
 		
 	}

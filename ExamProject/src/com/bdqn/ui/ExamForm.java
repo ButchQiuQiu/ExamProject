@@ -25,7 +25,7 @@ import com.bdqn.biz.ExamFormBiz;
 import com.bdqn.data.bean.Exampaper;
 import com.bdqn.data.bean.Question;
 import com.bdqn.data.bean.Result;
-//¿¼ÊÔ
+//è€ƒè¯•
 public class ExamForm extends MainBusinessPanel {
 		
 	/**
@@ -33,18 +33,18 @@ public class ExamForm extends MainBusinessPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	static Result result=new Result();//±£´æ³É¼¨
+	static Result result=new Result();//ä¿å­˜æˆç»©
 	
 	private JLabel jl1;
 	private JLabel jl2;
 	private JLabel jl3;
-	static int countScore=0;//Ã¿µÀÌâ¶à¸ö·Ö
-	static JPanel jpanel=new JPanel();//µÈ´ıÃæ°å
+	static int countScore=0;//æ¯é“é¢˜å¤šä¸ªåˆ†
+	static JPanel jpanel=new JPanel();//ç­‰å¾…é¢æ¿
 	public JLabel lbl=new JLabel();//
 	public ExamForm(){
-		lbl=new JLabel("µÈ´ı¿ª¿¼");//
+		lbl=new JLabel("ç­‰å¾…å¼€è€ƒ");//
 		lbl.setBounds(200,100,300,200);
-		lbl.setFont(new Font("Î¢ÈíÑÅºÚ",1,20));
+		lbl.setFont(new Font("å¾®è½¯é›…é»‘",1,20));
 		jpanel.setBounds(1,1,1000,720);
 		//jpanel.setVisible(true);
 		jpanel.setLayout(null);
@@ -52,7 +52,7 @@ public class ExamForm extends MainBusinessPanel {
 		this.add(jpanel);
 	}
 	static boolean isFlag=true;
-	//µÈ´ıÊ±¼ä¿ªÊ¼
+	//ç­‰å¾…æ—¶é—´å¼€å§‹
 	
 	@SuppressWarnings("static-access")
 	public void jPanelj(int studentid) {
@@ -67,21 +67,21 @@ public class ExamForm extends MainBusinessPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println("µ±Ç°Ê±¼ä£º"+new Date()+"\n¿ª¿¼Ê±¼ä£º"+baseDate+"\n¼ÆËã½á¹û:"+new Date().compareTo(baseDate));
+		System.out.println("å½“å‰æ—¶é—´ï¼š"+new Date()+"\nå¼€è€ƒæ—¶é—´ï¼š"+baseDate+"\nè®¡ç®—ç»“æœ:"+new Date().compareTo(baseDate));
 		if(new Date().compareTo(baseDate)==-1) {
-			System.out.println("»¹Î´¿ª¿¼");
+			System.out.println("è¿˜æœªå¼€è€ƒ");
 			return;
 		}
-		result.setStuid(studentid);//»ñµÃÑ§ºÅ
+		result.setStuid(studentid);//è·å¾—å­¦å·
 		jl1 = new JLabel();
 		jl2 = new JLabel();
 		jl3 = new JLabel();
 		ExamFormBiz join=new ExamFormBiz();
-		Exampaper exam=join.findClasses(studentid);//»ñµÃÊÔ¾íµÄĞÅÏ¢
+		Exampaper exam=join.findClasses(studentid);//è·å¾—è¯•å·çš„ä¿¡æ¯
 		this.result.setExamname(exam.getName());
-		ls=join.findQuestion(exam.getQids());//»ñµÃÊÔÌâµÄĞÅÏ¢
-		ExamForm.time=exam.getTime()*60;//»ñµÃÊ±¼ä
-		//int date=(exam.getTime()-10)*60;//²»ÄÜÌá½»½ĞÊÔ¾í
+		ls=join.findQuestion(exam.getQids());//è·å¾—è¯•é¢˜çš„ä¿¡æ¯
+		ExamForm.time=exam.getTime()*60;//è·å¾—æ—¶é—´
+		//int date=(exam.getTime()-10)*60;//ä¸èƒ½æäº¤å«è¯•å·
 		countScore=(int)(exam.getScore()/exam.getCount());
 		
 		ExamForm e=new ExamForm();
@@ -92,7 +92,7 @@ public class ExamForm extends MainBusinessPanel {
 		e.repaint();
 		e.updateUI();
 
-		this.add(jpanel);//µÈ´ı½çÃæ
+		this.add(jpanel);//ç­‰å¾…ç•Œé¢
 		btnsubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,7 +101,7 @@ public class ExamForm extends MainBusinessPanel {
 					join.doResult(result);
 				}
 //				if(time>10){
-//					JOptionPane.showMessageDialog(ExamForm.this,"¿¼ÊÔ²»ÄÜÌá½»ÊÔ¾í");
+//					JOptionPane.showMessageDialog(ExamForm.this,"è€ƒè¯•ä¸èƒ½æäº¤è¯•å·");
 //				}else {
 //					if(submit()) {
 //						subminResult();
@@ -112,10 +112,10 @@ public class ExamForm extends MainBusinessPanel {
 	}
 	
 	
-	protected JButton btnsubmit=new JButton();//Ìá½»¿¼ÊÔ
-	Map<String,String>stringOption=new HashMap<String,String>();//»ñÈ¡Ñ¡ÏîµÄ¼¯ºÏ
+	protected JButton btnsubmit=new JButton();//æäº¤è€ƒè¯•
+	Map<String,String>stringOption=new HashMap<String,String>();//è·å–é€‰é¡¹çš„é›†åˆ
 	
-	//Ìá½»¿¼ÊÔ
+	//æäº¤è€ƒè¯•
 	public boolean submit() {
 		boolean isFlag=false;
 		String idName="";
@@ -123,15 +123,15 @@ public class ExamForm extends MainBusinessPanel {
 			if(btn.getBackground().equals(Color.green)) {
 				
 			}else {
-				idName+=btn.getText()+"¡¢";
+				idName+=btn.getText()+"ã€";
 			}
 		}
 		if(idName.equals("")) {
-			idName="È·¶¨Ìá½»¿¼ÊÔ?";
+			idName="ç¡®å®šæäº¤è€ƒè¯•?";
 		}else {
-			idName+="»¹ÓĞÒÔÉÏÌâÃ»ÓĞ×öÍê,È·¶¨Ìá½»¿¼ÊÔ?";
+			idName+="è¿˜æœ‰ä»¥ä¸Šé¢˜æ²¡æœ‰åšå®Œ,ç¡®å®šæäº¤è€ƒè¯•?";
 		}
-		int i=JOptionPane.showConfirmDialog(null,idName,"¿¼ÊÔ",JOptionPane.YES_NO_CANCEL_OPTION);
+		int i=JOptionPane.showConfirmDialog(null,idName,"è€ƒè¯•",JOptionPane.YES_NO_CANCEL_OPTION);
 		if(i==0) {
 			isFlag=true;
 		}else if(i==1) {
@@ -142,27 +142,27 @@ public class ExamForm extends MainBusinessPanel {
 		return isFlag;
 	}
 	
-	//»ñµÃ³É¼¨
+	//è·å¾—æˆç»©
 	public boolean subminResult() {
-		Component items[]=plMax.getComponents();//»ñµÃËùÓĞµÄÈİÆ÷
-		List<JPanel>listJPanel=new ArrayList<JPanel>();//µØÏÂËùÓĞµÄÈİÆ÷
+		Component items[]=plMax.getComponents();//è·å¾—æ‰€æœ‰çš„å®¹å™¨
+		List<JPanel>listJPanel=new ArrayList<JPanel>();//åœ°ä¸‹æ‰€æœ‰çš„å®¹å™¨
 		for(Component c:items) {
 			if(c instanceof JPanel) {
-				listJPanel.add((JPanel) c);//»ñµÃËùÓĞJPanel
+				listJPanel.add((JPanel) c);//è·å¾—æ‰€æœ‰JPanel
 			}
 		}
 		String option1="";
 		for(JPanel jpanel:listJPanel) {
-			Component []com=jpanel.getComponents();//»ñµÃÃ¿¸öÃæ°åµÄËùÓĞÈİÆ÷
+			Component []com=jpanel.getComponents();//è·å¾—æ¯ä¸ªé¢æ¿çš„æ‰€æœ‰å®¹å™¨
 			String title="";
 			String option="";
 			for(Component c:com) {
 				if(c instanceof JLabel) {
-					JLabel ti=(JLabel)c;//»ñµÃÃ»ÓĞÈİÆ÷ÏÂµÄ±êÌâ
-					title=ti.getText().substring(ti.getText().indexOf("¡¢")+1);
+					JLabel ti=(JLabel)c;//è·å¾—æ²¡æœ‰å®¹å™¨ä¸‹çš„æ ‡é¢˜
+					title=ti.getText().substring(ti.getText().indexOf("ã€")+1);
 				}
 				if(c instanceof JRadioButton) {
-					;//»ñµÃÃ¿¸öÈİÆ÷ÏÂµÄ°´Å¥
+					;//è·å¾—æ¯ä¸ªå®¹å™¨ä¸‹çš„æŒ‰é’®
 					JRadioButton rbtnOption=(JRadioButton)c;
 					if(rbtnOption.isSelected()) {
 						option+=rbtnOption.getText().substring(0,1)+"*";
@@ -170,7 +170,7 @@ public class ExamForm extends MainBusinessPanel {
 				}
 			}
 			if(option.equals("")) {
-				option="ÄúÃ»ÓĞÑ¡Ôñ*";
+				option="æ‚¨æ²¡æœ‰é€‰æ‹©*";
 				
 			}
 			option1+=option;
@@ -178,7 +178,7 @@ public class ExamForm extends MainBusinessPanel {
 		}
 		double score=0;
 		for(int i=0;i<ls.size();i++) {
-			Question question=ls.get(i);//»ñµÃ¶ÔÏó
+			Question question=ls.get(i);//è·å¾—å¯¹è±¡
 			for(int j=0;j<stringOption.size();j++) {
 				if(stringOption.containsKey(question.getTitle())) {
 					if(stringOption.get(question.getTitle()).equals(question.getSolution())) {
@@ -188,8 +188,8 @@ public class ExamForm extends MainBusinessPanel {
 				}
 			}
 		}
-		JOptionPane.showMessageDialog(ExamForm.this,"¿¼ÊÔÍê³É£¬ÄúµÄ³É¼¨Îª£º"+score);
-		ExamForm.result.setScore(score);//»ñµÃ·ÖÊı
+		JOptionPane.showMessageDialog(ExamForm.this,"è€ƒè¯•å®Œæˆï¼Œæ‚¨çš„æˆç»©ä¸ºï¼š"+score);
+		ExamForm.result.setScore(score);//è·å¾—åˆ†æ•°
 		ExamForm.result.setOption(option1);
 		if(doResult(ExamForm.result)) {
 			return true;
@@ -202,19 +202,19 @@ public class ExamForm extends MainBusinessPanel {
 		return false;
 	}
 
-	//¿¼ÊÔÄÚÈİÈİÆ÷
+	//è€ƒè¯•å†…å®¹å®¹å™¨
 	JPanel plexam=new JPanel();
 	
 	List<Question>ls=null;
 	public void ExamForm1() {
 		this.setLayout(null);
 		this.setSize(1000,720);
-		this.setBackground(Color.white);//±³¾°°×É«
+		this.setBackground(Color.white);//èƒŒæ™¯ç™½è‰²
 		//jp.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-		//Ìá½»¿¼ÊÔ
-		btnsubmit.setText("Ìá½»¿¼ÊÔ");
-		btnsubmit.setFont(new Font("Î¢ÈíÑÅºÚ",1,30));
+		//æäº¤è€ƒè¯•
+		btnsubmit.setText("æäº¤è€ƒè¯•");
+		btnsubmit.setFont(new Font("å¾®è½¯é›…é»‘",1,30));
 		btnsubmit.setBounds(30,550,200,80);
 		btnsubmit.setContentAreaFilled(false);
 		
@@ -225,37 +225,37 @@ public class ExamForm extends MainBusinessPanel {
 	}
 	
 	
-	//×ÖÌå·½·¨
+	//å­—ä½“æ–¹æ³•
 	public Font typeface() {
-		Font g=new Font("Î¢ÈíÑÅºÚ",1,18);
+		Font g=new Font("å¾®è½¯é›…é»‘",1,18);
 		return g;
 	}
 	
 	protected JRadioButton []rbtnA=new JRadioButton[5];
 	
-	//×ó±ßµÄ±àºÅÈİÆ÷
+	//å·¦è¾¹çš„ç¼–å·å®¹å™¨
 	protected JPanel plId=new JPanel();
 	
-	//Ìá½»¿¼ÊÔ
+	//æäº¤è€ƒè¯•
 
 
-	//¿¼ÊÔÄÚÈİJPanel
+	//è€ƒè¯•å†…å®¹JPanel
 	public void examJPanel() {
 		plexam.setBounds(250,10,690,700);
-		//plexam.setBorder(BorderFactory.createTitledBorder("¿¼ÊÔÄÚÈİ"));
+		//plexam.setBorder(BorderFactory.createTitledBorder("è€ƒè¯•å†…å®¹"));
 		//plexam.setBorder(BorderFactory.createLineBorder(Color.black));
 		plexam.setBackground(Color.white);
 		plexam.setLayout(null);
-		dynamic();//»ñÈ¡ÊÔÌâ
+		dynamic();//è·å–è¯•é¢˜
 		plexam.add(scrollPane);
 		this.add(plId);
 		this.add(plexam);
 	}
 	
-	JPanel plMax=new JPanel();//±£´æËùÓĞµÄÊÔÌâ
+	JPanel plMax=new JPanel();//ä¿å­˜æ‰€æœ‰çš„è¯•é¢˜
 	JScrollPane scrollPane;
-	List<JButton>listIntger=new ArrayList<JButton>();//±£´æ×ó±ßËùÓĞµÄ±àºÅ
-	//¶¯Ì¬Éú³É
+	List<JButton>listIntger=new ArrayList<JButton>();//ä¿å­˜å·¦è¾¹æ‰€æœ‰çš„ç¼–å·
+	//åŠ¨æ€ç”Ÿæˆ
 	public void dynamic() {
 		int y1=20;
 		plMax.setLayout(null);
@@ -263,35 +263,35 @@ public class ExamForm extends MainBusinessPanel {
 		plMax.setBackground(Color.white);
 		plMax.setBounds(10,10,900,2000);
 		for(int j=0;j<ls.size();j++) {
-				Question q=new Question();//¶ÔÏó
-				q=ls.get(j);//¸³Öµ
-				String queid=q.getOption().replaceAll("\\*","¡ª¡ª");//Ìæ»»
-				String[]s=queid.split("¡ª¡ª");//·Ö¸îÑ¡Ïî
+				Question q=new Question();//å¯¹è±¡
+				q=ls.get(j);//èµ‹å€¼
+				String queid=q.getOption().replaceAll("\\*","â€”â€”");//æ›¿æ¢
+				String[]s=queid.split("â€”â€”");//åˆ†å‰²é€‰é¡¹
 				
-				JPanel jp=new JPanel();//Ã¿µÀÌâµÄÈİÆ÷
+				JPanel jp=new JPanel();//æ¯é“é¢˜çš„å®¹å™¨
 				jp.setLayout(null);
 				jp.setBorder(BorderFactory.createLineBorder(Color.black));
 				jp.setBackground(Color.white);
-				JLabel lbltitle=new JLabel(j+1+"¡¢"+q.getTitle());//±êÌâ
+				JLabel lbltitle=new JLabel(j+1+"ã€"+q.getTitle());//æ ‡é¢˜
 				lbltitle.setBounds(30,10,600,40);
-				lbltitle.setFont(new Font("Î¢ÈíÑÅºÚ",0,15));
+				lbltitle.setFont(new Font("å¾®è½¯é›…é»‘",0,15));
 				jp.setBounds(25,y1,620,180);
 				
-				rbtnA=new JRadioButton[s.length];//µ¥Ñ¡¿ò
+				rbtnA=new JRadioButton[s.length];//å•é€‰æ¡†
 				
 				int x=60;
 				int y=45;
 				int width=520;
 				int height=30;
-				ButtonGroup group=new ButtonGroup();//°´Å¥×é
-				for(int k=0;k<s.length;k++) {//¸ù¾İ×Ö·û´®µÄ³¤¶ÈÅĞ¶Ï
-					rbtnA[k]=new JRadioButton(s[k]);//°Ñ»ñÈ¡µ½µÄÑ¡Ïî¸³Öµ¸ø°´Å¥
+				ButtonGroup group=new ButtonGroup();//æŒ‰é’®ç»„
+				for(int k=0;k<s.length;k++) {//æ ¹æ®å­—ç¬¦ä¸²çš„é•¿åº¦åˆ¤æ–­
+					rbtnA[k]=new JRadioButton(s[k]);//æŠŠè·å–åˆ°çš„é€‰é¡¹èµ‹å€¼ç»™æŒ‰é’®
 					rbtnA[k].setBounds(x, y, width, height);
-					rbtnA[k].setFont(new Font("Î¢ÈíÑÅºÚ",0,15));//»ñµÃ×ÖÌåÑùÊ½
+					rbtnA[k].setFont(new Font("å¾®è½¯é›…é»‘",0,15));//è·å¾—å­—ä½“æ ·å¼
 					rbtnA[k].setBackground(Color.white);
 					jp.add(rbtnA[k]);
 					
-					if(q.getTitle().indexOf("µ¥Ñ¡")>0) {
+					if(q.getTitle().indexOf("å•é€‰")>0) {
 						group.add(rbtnA[k]);
 					}
 					list.add(rbtnA[k]);
@@ -304,10 +304,10 @@ public class ExamForm extends MainBusinessPanel {
 			}
 		plId.setBounds(30,120,200,20*ls.size());
 		plId.setLayout(new GridLayout(5,10,2,2));
-		//×ó±ßµÄ±àºÅ°´Å¥
+		//å·¦è¾¹çš„ç¼–å·æŒ‰é’®
 		for(int j=0;j<ls.size();j++) {
 			JButton jbtn=new JButton(j+1+"");
-			jbtn.setFont(typeface());//»ñµÃ×ÖÌå
+			jbtn.setFont(typeface());//è·å¾—å­—ä½“
 			jbtn.setBorder(BorderFactory.createLineBorder(Color.black));
 			jbtn.setBackground(Color.white);
 			listIntger.add(jbtn);
@@ -319,7 +319,7 @@ public class ExamForm extends MainBusinessPanel {
 		//Component items[]=plId.getComponents();
 		jbutton();
 	}
-	List<JButton> listbrn=new ArrayList<JButton>();//×ó±ß±àºÅµÄ¼¯ºÏ
+	List<JButton> listbrn=new ArrayList<JButton>();//å·¦è¾¹ç¼–å·çš„é›†åˆ
 	public void jbutton() {
 		Component items[]=plId.getComponents();
 		
@@ -362,9 +362,9 @@ public class ExamForm extends MainBusinessPanel {
 		
 	}
 	
-	//°´Å¥¶ÔÓ¦
-	List<String>listString=new ArrayList<String>();//ËùÓĞµÄ±àºÅ
-	List<JRadioButton>list=new ArrayList<JRadioButton>();//»ñµÃËùÓĞJRadioButton
+	//æŒ‰é’®å¯¹åº”
+	List<String>listString=new ArrayList<String>();//æ‰€æœ‰çš„ç¼–å·
+	List<JRadioButton>list=new ArrayList<JRadioButton>();//è·å¾—æ‰€æœ‰JRadioButton
 	public void jRadioButton() {
 		for(JRadioButton r:list) {
 			r.addActionListener(new ActionListener() {
@@ -379,7 +379,7 @@ public class ExamForm extends MainBusinessPanel {
 					for(Component tempcom:s) {
 						if(tempcom instanceof JLabel) {
 							JLabel lblName=(JLabel)tempcom;
-							name=lblName.getText().substring(0,lblName.getText().indexOf("¡¢"));
+							name=lblName.getText().substring(0,lblName.getText().indexOf("ã€"));
 						}
 					}
 					for(JButton j:listbrn){
@@ -407,7 +407,7 @@ public class ExamForm extends MainBusinessPanel {
 		
 	}
 	
-	//µ¥»÷ÊÂ¼ş
+	//å•å‡»äº‹ä»¶
 	
 	
 	private void init() {
@@ -432,12 +432,12 @@ public class ExamForm extends MainBusinessPanel {
 			//hour = time / 3600;
 			minute = (time - hour * 3600) / 60;
 			seconds = time - hour * 3600 - minute * 60;
-			jl1.setText(hour + "Ê±");
-			jl1.setFont(new Font("Î¢ÈíÑÅºÚ",1,25));
-			jl2.setText(minute + "·Ö");
-			jl2.setFont(new Font("Î¢ÈíÑÅºÚ",1,25));
-			jl3.setText(seconds + "Ãë");
-			jl3.setFont(new Font("Î¢ÈíÑÅºÚ",1,25));
+			jl1.setText(hour + "æ—¶");
+			jl1.setFont(new Font("å¾®è½¯é›…é»‘",1,25));
+			jl2.setText(minute + "åˆ†");
+			jl2.setFont(new Font("å¾®è½¯é›…é»‘",1,25));
+			jl3.setText(seconds + "ç§’");
+			jl3.setFont(new Font("å¾®è½¯é›…é»‘",1,25));
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -445,10 +445,10 @@ public class ExamForm extends MainBusinessPanel {
 			}
 			time--;
 				if(time==600) {
-					JOptionPane.showMessageDialog(ExamForm.this,"¿¼ÊÔ»¹ÓĞÊ®·ÖÖÓ½áÊøÁË!");
+					JOptionPane.showMessageDialog(ExamForm.this,"è€ƒè¯•è¿˜æœ‰ååˆ†é’Ÿç»“æŸäº†!");
 				}
 				if(ExamForm.time==0) {
-					subminResult();//½áÊø³É¼¨
+					subminResult();//ç»“æŸæˆç»©
 				}
 		}
 	}

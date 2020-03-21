@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
-//主窗口用于放置主面板 和设置主窗口参数
+//涓荤獥鍙ｇ敤浜庢斁缃富闈㈡澘 鍜岃缃富绐楀彛鍙傛暟
 public class MainFrame extends JFrame{
 	public MainFrame() {
 		super();

@@ -23,8 +23,8 @@ import com.bdqn.data.impl.MajorDaoImpl;
 import com.bdqn.data.impl.StudentDaoImpl;
 import com.bdqn.ui.MainDialog;
 
-//¾²Ì¬ÒµÎñÊµÏÖÀà
-//Ìí¼ÓÑ§Éú½çÃæËùĞèÒªµÄÒµÎñ²ãÒµÎñÊı¾İ²ã(¿Ø¼şÊÂ¼şÇı¶¯)
+//é™æ€ä¸šåŠ¡å®ç°ç±»
+//æ·»åŠ å­¦ç”Ÿç•Œé¢æ‰€éœ€è¦çš„ä¸šåŠ¡å±‚ä¸šåŠ¡æ•°æ®å±‚(æ§ä»¶äº‹ä»¶é©±åŠ¨)
 public final class EditStudentBiz {
 	static StudentDao stu=new StudentDaoImpl();
 	static MajorDao maj=new MajorDaoImpl();
@@ -32,26 +32,26 @@ public final class EditStudentBiz {
 	static List<Student> students=new ArrayList<Student>();
 	static List<Major> majors=new ArrayList<Major>();
 	static List<Classes> classess=new ArrayList<Classes>();
-	//ÊÂ¼şµ÷ÓÃÊı¾İ²Ù×÷¶¼²»ĞèÒªÊµÀı»¯ ËùÒÔ²»ÔÊĞí±»¼Ì³Ğ ²¢ÇÒËùÓĞº¯Êı¶¼ÊÇ¾²Ì¬º¯Êı
+	//äº‹ä»¶è°ƒç”¨æ•°æ®æ“ä½œéƒ½ä¸éœ€è¦å®ä¾‹åŒ– æ‰€ä»¥ä¸å…è®¸è¢«ç»§æ‰¿ å¹¶ä¸”æ‰€æœ‰å‡½æ•°éƒ½æ˜¯é™æ€å‡½æ•°
 	private EditStudentBiz() {};	
 	
-	//Ìí¼ÓĞÅÏ¢  //Èç¹ûÑ§ºÅÎª¿Õ µ¯³öÌáÊ¾¿ò ÊäÈëÌáÊ¾¿ò
+	//æ·»åŠ ä¿¡æ¯  //å¦‚æœå­¦å·ä¸ºç©º å¼¹å‡ºæç¤ºæ¡† è¾“å…¥æç¤ºæ¡†
 	@SuppressWarnings("static-access")
 	public static boolean AddStrudent (String stuId,String stuName,String stuPassword,String stuAddress,String stuPhone,String stuClass) {
 		int cid=new ClassesDaoImpl().<Classes>ExecuteQueryBySql("select * from "+Classes.tablename+" where name='"+stuClass+"'").get(0).getId();
 		boolean re=new StudentDaoImpl().InsertBySql("insert into "+Student.tablename+" (id,name,password,address,phone,cid)values("
 				+Integer.valueOf(stuId)+",'"+stuName+"','"+stuPassword+"','"+stuAddress+"','"+stuPhone+"','"+cid+"')");
 		if(re) {
-			new MainDialog().showMessageDialog(null, "Ìí¼Ó³É¹¦!!!");
+			new MainDialog().showMessageDialog(null, "æ·»åŠ æˆåŠŸ!!!");
 			return true;
 		}else {
-			new MainDialog().showMessageDialog(null, "Ìí¼ÓÊ§°Ü!!! ÇëÈ·¶¨Ñ§ºÅÊÇ·ñÒÑ´æÔÚ!!!");
+			new MainDialog().showMessageDialog(null, "æ·»åŠ å¤±è´¥!!! è¯·ç¡®å®šå­¦å·æ˜¯å¦å·²å­˜åœ¨!!!");
 			return false;
 		}
 		
 	}
 	
-	//¸üĞÂ×¨Òµ ¿Ø¼ş³õÊ¼»¯/¿Ø¼ş¸ü¸ÄÊ±µ÷ÓÃ
+	//æ›´æ–°ä¸“ä¸š æ§ä»¶åˆå§‹åŒ–/æ§ä»¶æ›´æ”¹æ—¶è°ƒç”¨
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void SelectComboBox(JComboBox<String> majorJb,JComboBox<String> classesJb) {
 		String majorName=majorJb.getSelectedItem().toString();
@@ -64,14 +64,14 @@ public final class EditStudentBiz {
 		classesJb.setModel(new DefaultComboBoxModel(classesnames.toArray(new String[classesnames.size()])));
 		
 	}
-	//ÅĞ¶ÏÊÖ»úºÅÂë
+	//åˆ¤æ–­æ‰‹æœºå·ç 
 	@SuppressWarnings("static-access")
 	public static boolean checkPhone(String phone) {
 		boolean isPhone=false;
 		String regex = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$";
         if(String.valueOf(phone).length() != 11){
         	
-        	new MainDialog().showMessageDialog(null,"ÊÖ»úºÅÎª11Î»Êı,ÇëÖØĞÂÊäÈë£¡");
+        	new MainDialog().showMessageDialog(null,"æ‰‹æœºå·ä¸º11ä½æ•°,è¯·é‡æ–°è¾“å…¥ï¼");
         }else{
 		    Pattern p = Pattern.compile(regex);
 		    Matcher m = p.matcher(String.valueOf(phone));
@@ -79,7 +79,7 @@ public final class EditStudentBiz {
 		    if(isMatch){
 		    	isPhone=true;
 		    } else {
-		    	new MainDialog().showMessageDialog(null,"ÄúÊäÈëµÄÊÖ»úºÅ£º:" + phone + " ¸ñÊ½´íÎó£¬ÇëÖØĞÂÊäÈë£¡£¡£¡");
+		    	new MainDialog().showMessageDialog(null,"æ‚¨è¾“å…¥çš„æ‰‹æœºå·ï¼š:" + phone + " æ ¼å¼é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼ï¼ï¼");
 		    }
         }
 		return isPhone;
@@ -158,7 +158,7 @@ public final class EditStudentBiz {
 		boolean isNull=false;
 		for(int i=0;i<addtable.getColumnCount();i++) {
 			if(addtable.getValueAt(0, i)==null) {
-				new MainDialog().showMessageDialog(null, addtable.getColumnName(i)+"²»ÄÜÎª¿Õ!!!!");
+				new MainDialog().showMessageDialog(null, addtable.getColumnName(i)+"ä¸èƒ½ä¸ºç©º!!!!");
 				isNull=true;
 				break;
 			}
@@ -178,7 +178,7 @@ public final class EditStudentBiz {
 				}
 			}
 			if(!isClass) {
-				new MainDialog().showMessageDialog(null, "¸Ã°à¼¶²»´æÔÚ£¡");
+				new MainDialog().showMessageDialog(null, "è¯¥ç­çº§ä¸å­˜åœ¨ï¼");
 			}
 			if(isClass&&isPhone) {
 				String sql="insert into "+Student.tablename+" values("+addtable.getValueAt(0, 0)+",'"+addtable.getValueAt(0, 1)+"','"+addtable.getValueAt(0, 2)+"','"
@@ -194,9 +194,9 @@ public final class EditStudentBiz {
 						mm.removeRow(index);
 					} 
 					findStudentAll(table, mm);
-					new MainDialog().showMessageDialog(null, "Ìí¼Ó³É¹¦£¡");
+					new MainDialog().showMessageDialog(null, "æ·»åŠ æˆåŠŸï¼");
 				}else {
-					new MainDialog().showMessageDialog(null, "ÎÊÌâ:\n1.Çë²é¿´¸ÃÑ§ºÅÊÇ·ñÒÑ´æÔÚ!\n2.ĞÅÏ¢ÊÇ·ñÌîĞ´²»¹æ·¶!");
+					new MainDialog().showMessageDialog(null, "é—®é¢˜:\n1.è¯·æŸ¥çœ‹è¯¥å­¦å·æ˜¯å¦å·²å­˜åœ¨!\n2.ä¿¡æ¯æ˜¯å¦å¡«å†™ä¸è§„èŒƒ!");
 				}
 			}
 		}
@@ -207,7 +207,7 @@ public final class EditStudentBiz {
 		if(row!=-1) {
 			if(row<table.getRowCount()) {
 				if(table.isRowSelected(row)) {
-					//°ÑÑ¡ÖĞµÄĞĞÊıµÄÊı¾İ´æµ½¼¯ºÏÖĞ
+					//æŠŠé€‰ä¸­çš„è¡Œæ•°çš„æ•°æ®å­˜åˆ°é›†åˆä¸­
 					Student stuData=new Student();
 					stuData.setId(Integer.parseInt(String.valueOf(model.getValueAt(row, 0))));
 					stuData.setName(String.valueOf(model.getValueAt(row, 1)));
@@ -242,10 +242,10 @@ public final class EditStudentBiz {
 		if(isUpdate) {
 			DefaultTableModel model =(DefaultTableModel) table.getModel();
 			table.tableChanged(new TableModelEvent(table.getModel()));
-			new MainDialog().showMessageDialog(null, "ĞŞ¸Ä³É¹¦£¡");
+			new MainDialog().showMessageDialog(null, "ä¿®æ”¹æˆåŠŸï¼");
 			data.clear();
 		}else {
-			new MainDialog().showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü£¡\nÇë¼ì²éÊÇ·ñ¸ü¸ÄÑ§ºÅ£¡");
+			new MainDialog().showMessageDialog(null, "ä¿®æ”¹å¤±è´¥ï¼\nè¯·æ£€æŸ¥æ˜¯å¦æ›´æ”¹å­¦å·ï¼");
 			data.clear();
 		}
 	}
@@ -260,12 +260,12 @@ public final class EditStudentBiz {
 				DefaultTableModel model =(DefaultTableModel) table.getModel();
 				table.tableChanged(new TableModelEvent(table.getModel()));
 				model.removeRow(row);
-				new MainDialog().showMessageDialog(null, "É¾³ı³É¹¦!");
+				new MainDialog().showMessageDialog(null, "åˆ é™¤æˆåŠŸ!");
 			}else {
-				new MainDialog().showMessageDialog(null, "É¾³ıÊ§°Ü!");
+				new MainDialog().showMessageDialog(null, "åˆ é™¤å¤±è´¥!");
 			}
 		}else {
-			new MainDialog().showMessageDialog(null, "ÇëÑ¡ÔñÒªÉ¾³ıµÄĞĞ!");
+			new MainDialog().showMessageDialog(null, "è¯·é€‰æ‹©è¦åˆ é™¤çš„è¡Œ!");
 		}
 	}
 }

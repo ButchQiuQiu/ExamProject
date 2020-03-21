@@ -2,13 +2,13 @@ package com.bdqn.data;
 
 import java.util.List;
 
-//ËùÓĞ½Ó¿ÚµÄ¸¸Àà ÓĞ2¸öÍ¨ÓÃ·½·¨ Èç¹ûÄ³ÕÅ±íĞèÇó¶ÀÌØµÄ¹¦ÄÜ¾ÍĞ´ÔÚ¶ÔÓ¦µÄ½Ó¿ÚÉÏ 
+//æ‰€æœ‰æ¥å£çš„çˆ¶ç±» æœ‰2ä¸ªé€šç”¨æ–¹æ³• å¦‚æœæŸå¼ è¡¨éœ€æ±‚ç‹¬ç‰¹çš„åŠŸèƒ½å°±å†™åœ¨å¯¹åº”çš„æ¥å£ä¸Š 
 public interface Dao {
 	
-	//²é
+	//æŸ¥
 	public <T>List<T>  ExecuteQueryBySql(String sql);
-	//É¾¸Ä
+	//åˆ æ”¹
 	public boolean UpdateBySql(String sql);
-	//Ôö
+	//å¢
 	public boolean InsertBySql(String sql);
 }

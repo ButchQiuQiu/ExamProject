@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
-//²»ÓÃ´´½¨ÊµÀıµÄ¾²Ì¬¹¤¾ßÀà °üÀ¨µ×²ãÊı¾İ²Ù×÷ ui¶¯»­µÈ
+//ä¸ç”¨åˆ›å»ºå®ä¾‹çš„é™æ€å·¥å…·ç±» åŒ…æ‹¬åº•å±‚æ•°æ®æ“ä½œ uiåŠ¨ç”»ç­‰
 public final class DataBase {
 	private static final String ConStr="jdbc:mysql://localhost:3306/exam?characterEncoding=utf-8",
 			  User="root",
@@ -17,7 +17,7 @@ public final class DataBase {
 //			  User="root",
 //			  Pwd="";
 	
-	//Á´½ÓÖ¸¶¨µÄÊı¾İ¿â(×Ô¶¨Òå²ÎÊı)
+	//é“¾æ¥æŒ‡å®šçš„æ•°æ®åº“(è‡ªå®šä¹‰å‚æ•°)
 	public  static Connection GetConnection(String constr,String user,String pwd) throws Exception  {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = null;
@@ -25,7 +25,7 @@ public final class DataBase {
 		return con;
 	}
 	
-	//Á¬½Ó³ÌĞòÄ¬ÈÏµÄÊı¾İ¿â
+	//è¿æ¥ç¨‹åºé»˜è®¤çš„æ•°æ®åº“
 	public static Connection GetDefaultConnection() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con=null;
@@ -33,7 +33,7 @@ public final class DataBase {
 		return con;
 	}
 	
-	//¶Ï¿ªÁ¬½Ó
+	//æ–­å¼€è¿æ¥
 	public static void CloseConnection(Connection con,PreparedStatement pstm,ResultSet rs) throws Exception {
 		if(con!=null) {
 			con.close();
@@ -46,7 +46,7 @@ public final class DataBase {
 		}
 	}
 	
-	//sql²éÑ¯  °´ÕÕField¼¯ºÏ·µ»ØÒ»¸öÒÑ¾­½øĞĞÊı¾İ¸³Öµ·â×°ºóµÄÊµÌåÀà¼¯ºÏ  ²ÎÊı:sql,·´ÉäÀà
+	//sqlæŸ¥è¯¢  æŒ‰ç…§Fieldé›†åˆè¿”å›ä¸€ä¸ªå·²ç»è¿›è¡Œæ•°æ®èµ‹å€¼å°è£…åçš„å®ä½“ç±»é›†åˆ  å‚æ•°:sql,åå°„ç±»
 	@SuppressWarnings("unchecked")
 	public static <T>List<T> ExecuteQueryBySql(String sql,Class<?> cs) throws Exception {
 		List<T> beans=new ArrayList<T>();
@@ -57,13 +57,13 @@ public final class DataBase {
 		while(rs.next()) {
 			Object bean=cs.newInstance();
 			for(int i=0;i<fields.length;i++) {
-				//ÂÓ¹ıtablenameºÍÃ»ÓĞÊı¾İµÄÊôĞÔ³ÉÔ±
+				//æ è¿‡tablenameå’Œæ²¡æœ‰æ•°æ®çš„å±æ€§æˆå‘˜
 				if(fields[i].getName().equals("tablename")||(IsColumnExist(rs.getMetaData(),fields[i].getName())==false)) {continue;}
-				Object data=rs.getObject(fields[i].getName()); 								// È¡»Ø¶ÔÓ¦Öµ
+				Object data=rs.getObject(fields[i].getName()); 								// å–å›å¯¹åº”å€¼
 				Reflection.invokeByMethodName(
-						Reflection.GetSetMethodNameForEclipseEncap(fields[i].getName()), 	//·´Éä·½·¨Ãû--¼Ó¹¤Îª°ü×°setº¯Êı
-						data,																//·´Éä·½·¨µÄ²ÎÊı
-						bean																//Ö¸¶¨·´ÉäµÄ¶ÔÏó
+						Reflection.GetSetMethodNameForEclipseEncap(fields[i].getName()), 	//åå°„æ–¹æ³•å--åŠ å·¥ä¸ºåŒ…è£…setå‡½æ•°
+						data,																//åå°„æ–¹æ³•çš„å‚æ•°
+						bean																//æŒ‡å®šåå°„çš„å¯¹è±¡
 				);
 			}
 			beans.add((T) bean);
@@ -72,14 +72,14 @@ public final class DataBase {
 		return beans;
 	}
 	
-	// ÔöÉ¾¸Ä»ù´¡
+	// å¢åˆ æ”¹åŸºç¡€
 	public static int UpdateBySql(String sql) throws Exception {
 		Connection con=DataBase.GetDefaultConnection();
 		PreparedStatement pstm= con.prepareStatement(sql);
 		return pstm.executeUpdate();
 	}
 	
-	//ÅĞ¶ÏÊÇ·ñÓĞ´ËÁĞ
+	//åˆ¤æ–­æ˜¯å¦æœ‰æ­¤åˆ—
 	public static boolean IsColumnExist(ResultSetMetaData md,String columnname) throws Exception {
 		for(int i=0;i<md.getColumnCount();i++) {
 			if(md.getColumnName(i+1).equals(columnname)) {

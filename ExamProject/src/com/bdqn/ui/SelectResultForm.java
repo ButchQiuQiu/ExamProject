@@ -20,37 +20,37 @@ import java.util.List;
 
 
 
-//²é¿´³É¼¨
+//æŸ¥çœ‹æˆç»©
 public class SelectResultForm extends MainBusinessPanel {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		JPanel plLeft=new JPanel();//×ó±ß
-		//³É¼¨ÏÔÊ¾JPanel
-		JPanel plResult=new JPanel();//ÏÔÊ¾³É¼¨
+		JPanel plLeft=new JPanel();//å·¦è¾¹
+		//æˆç»©æ˜¾ç¤ºJPanel
+		JPanel plResult=new JPanel();//æ˜¾ç¤ºæˆç»©
 		JScrollPane js;
-		//×ó±ßÏÔÊ¾³õÊ¼»¯
+		//å·¦è¾¹æ˜¾ç¤ºåˆå§‹åŒ–
 	public SelectResultForm() {
-		//×ó±ßJPanel
-		plLeft.setBounds(30,0,970,130);//¸Ä»»³É¶¥²¿
+		//å·¦è¾¹JPanel
+		plLeft.setBounds(30,0,970,130);//æ”¹æ¢æˆé¡¶éƒ¨
 		plLeft.setLayout(null);
 		plLeft.setOpaque(false);
 		this.add(plLeft);
-		section();//½¹µãÊÂ¼ş
+		section();//ç„¦ç‚¹äº‹ä»¶
 		plResult.setBounds(30,150,970,550);
 		plResult.setLayout(null);
 		//plResult.setBorder(BorderFactory.createLineBorder(Color.black));
-		data(textsec.getText());//»ñµÃÊı¾İ
-		js=new JScrollPane(plMax);//³öÏÖ¹ö¶¯Ìõ
+		data(textsec.getText());//è·å¾—æ•°æ®
+		js=new JScrollPane(plMax);//å‡ºç°æ»šåŠ¨æ¡
 		js.setOpaque(false);
 		js.setBackground(Color.white);
 		js.setBounds(40,30,900,500);
 		plResult.add(js);
 		plResult.setOpaque(false);
 		this.add(plResult);
-	}//³õÊ¼»¯ Ò»¸öJPanel
+	}//åˆå§‹åŒ– ä¸€ä¸ªJPanel
 	
 	
 	JTextField textsec=new JTextField(20);
@@ -70,8 +70,8 @@ public class SelectResultForm extends MainBusinessPanel {
 			}
 		});
 		
-		JButton btnOut=new JButton("²éÕÒ");
-		btnOut.setFont(font());//»ñµÃ×ÖÌå
+		JButton btnOut=new JButton("æŸ¥æ‰¾");
+		btnOut.setFont(font());//è·å¾—å­—ä½“
 		btnOut.setBounds(500,40,150,50);
 		btnOut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		btnOut.setContentAreaFilled(false);
@@ -80,7 +80,7 @@ public class SelectResultForm extends MainBusinessPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				plMax.removeAll();
 				plMax.repaint();
-				load(jPanelconent(textsec.getText()));//ÖØĞÂ¼ÓÔØ³É¼¨'
+				load(jPanelconent(textsec.getText()));//é‡æ–°åŠ è½½æˆç»©'
 				plMax.repaint();
 				plMax.updateUI();
 				//plMax.revalidate();
@@ -88,13 +88,13 @@ public class SelectResultForm extends MainBusinessPanel {
 		});
 	}
 	
-	//Ë¢ĞÂ×é¼ş
+	//åˆ·æ–°ç»„ä»¶
 	List<Result>listResult=new ArrayList<Result>();
 	
 	public List<Result> jPanelconent(String name) {
-		//É¸Ñ¡Êı¾İ
+		//ç­›é€‰æ•°æ®
 		if(name.equals("")) {
-			return listResult;//·µ»ØÈ«²¿
+			return listResult;//è¿”å›å…¨éƒ¨
 		}else {
 			int id=Integer.parseInt(name);
 			List<Result>listlin=new ArrayList<Result>();
@@ -108,28 +108,28 @@ public class SelectResultForm extends MainBusinessPanel {
 		
 	}
 	
-	//Ö»ÄÜÊäÈëÊı×Ö
+	//åªèƒ½è¾“å…¥æ•°å­—
 	public void txtInput_KeyTyped(KeyEvent ke){
 		if(ke.getKeyChar() < '0' || ke.getKeyChar() > '9'){
 			ke.setKeyChar('\0');
 		}
 	}
 	
-	//×ÖÌåÑùÊ½
+	//å­—ä½“æ ·å¼
 	public Font font() {
-		Font f=new Font("Î¢ÈíÑÅºÚ",1,18);
+		Font f=new Font("å¾®è½¯é›…é»‘",1,18);
 		return f;
 	}
 	
 	
 	JPanel plMax=new JPanel();
 	
-	//×î´ó
+	//æœ€å¤§
 
-	//»ñµÃÊı¾İ
+	//è·å¾—æ•°æ®
 	public void data(String name) {
 		SelectResultBiz selectResult=new SelectResultBiz();
-		listResult=selectResult.findResult(name);//»ñµÃËùÓĞµÄ³É¼¨
+		listResult=selectResult.findResult(name);//è·å¾—æ‰€æœ‰çš„æˆç»©
 		if(listResult.size()>0) {
 			load(listResult);
 		}else {
@@ -140,7 +140,7 @@ public class SelectResultForm extends MainBusinessPanel {
 	
 	}
 	
-	//¼ÓÔØÊı¾İ
+	//åŠ è½½æ•°æ®
 	@SuppressWarnings("deprecation")
 	public void load(List<Result>lresult) {
 		plMax.setLayout(null);
@@ -150,19 +150,19 @@ public class SelectResultForm extends MainBusinessPanel {
 		plTop.setBounds(10,5,850,70);
 		plTop.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-		String[] lie= {"ÈËÊı","Ñ§ºÅ","ĞÕÃû","°à¼¶","¿¼ÊÔ","³É¼¨","Ê±¼ä"};
+		String[] lie= {"äººæ•°","å­¦å·","å§“å","ç­çº§","è€ƒè¯•","æˆç»©","æ—¶é—´"};
 		int x1=20;
 		for(int k=0;k<lie.length;k++) {
 			JLabel lbl=new JLabel(lie[k]);
-			lbl.setFont(font());//»ñÈ¡×ÖÌå
+			lbl.setFont(font());//è·å–å­—ä½“
 			lbl.setBounds(x1,-6,130,80);
 			plTop.add(lbl);
-			if(lie[k].equals("°à¼¶")) {
+			if(lie[k].equals("ç­çº§")) {
 				x1+=170;
 			}else {
 				x1+=105;
 			}
-			if(lie[k].equals("¿¼ÊÔ")) {
+			if(lie[k].equals("è€ƒè¯•")) {
 				x1+=45;
 			}
 		}
@@ -181,33 +181,33 @@ public class SelectResultForm extends MainBusinessPanel {
 			//pl.setBackground(Color.white);
 			pl.setFont(font());
 			
-			SelectResultBiz sResult=new SelectResultBiz();//»ñµÃ²Î¼ÓÑ§ÉúµÄĞÅÏ¢
-			Student student=sResult.findStudent(s.getStuid());//¸ù¾İÑ§ºÃ²é¿´¸ÃÑ§ÉúĞÅÏ¢
+			SelectResultBiz sResult=new SelectResultBiz();//è·å¾—å‚åŠ å­¦ç”Ÿçš„ä¿¡æ¯
+			Student student=sResult.findStudent(s.getStuid());//æ ¹æ®å­¦å¥½æŸ¥çœ‹è¯¥å­¦ç”Ÿä¿¡æ¯
 			
-			//Exampaper exam=sResult.findExampaper(s.getEid());//»ñµÃ¿¼ÊÔĞÅÏ¢
+			//Exampaper exam=sResult.findExampaper(s.getEid());//è·å¾—è€ƒè¯•ä¿¡æ¯
 			
-			Classes classes=sResult.findClasses(student.getCid());//»ñµÃÄê¼¶ĞÅÏ¢
+			Classes classes=sResult.findClasses(student.getCid());//è·å¾—å¹´çº§ä¿¡æ¯
 			
-			JLabel lblCount=new JLabel(count+"");//ÈËÊı
+			JLabel lblCount=new JLabel(count+"");//äººæ•°
 			lblCount.setBounds(x2, 0,130,80);
 			lblCount.setFont(font());
 			count++;
-			JLabel lbl=new JLabel(student.getId()+"");//Ñ§ºÅ
+			JLabel lbl=new JLabel(student.getId()+"");//å­¦å·
 			lbl.setFont(font());
 			lbl.setBounds(x2+=80,0,130,80);
-			JLabel lbl1=new JLabel(student.getName());//ĞÕÃû
+			JLabel lbl1=new JLabel(student.getName());//å§“å
 			lbl1.setFont(font());
 			lbl1.setBounds(x2+=120,0,130,80);
 			
-			JLabel lbl2=new JLabel(classes.getName());//°à¼¶
+			JLabel lbl2=new JLabel(classes.getName());//ç­çº§
 			lbl2.setFont(font());
 			lbl2.setBounds(x2+=100,0,130,80);
 			
-			JLabel lblExam=new JLabel(s.getExamname());//¿¼ÊÔÃû³Æ
+			JLabel lblExam=new JLabel(s.getExamname());//è€ƒè¯•åç§°
 			lblExam.setFont(font());
 			lblExam.setBounds(x2+=130,0,230,80);
 			
-			JLabel lblResult=new JLabel(s.getScore()+"");//³É¼¨
+			JLabel lblResult=new JLabel(s.getScore()+"");//æˆç»©
 			lblResult.setFont(font());
 			lblResult.setBounds(x2+=190,0,230,80);
 			
@@ -215,21 +215,21 @@ public class SelectResultForm extends MainBusinessPanel {
 			lbltime.setFont(font());
 			lbltime.setBounds(x2+=80,0,230,80);
 			
-			pl.add(lblCount);//Í³¼ÆÈËÊı
-			pl.add(lbl);//Ñ§ºÅ
-			pl.add(lbl1);//ĞÕÃû
-			pl.add(lbl2);//°à¼¶
-			pl.add(lblExam);//¿¼ÊÔÃû³Æ
+			pl.add(lblCount);//ç»Ÿè®¡äººæ•°
+			pl.add(lbl);//å­¦å·
+			pl.add(lbl1);//å§“å
+			pl.add(lbl2);//ç­çº§
+			pl.add(lblExam);//è€ƒè¯•åç§°
 			pl.add(lblResult);
-			pl.add(lbltime);//Ê±¼ä
+			pl.add(lbltime);//æ—¶é—´
 			plMax.add(pl);//
 			y+=90;
 		}
-		plMax.add(plTop);//¶¥²¿
+		plMax.add(plTop);//é¡¶éƒ¨
 		plMax.setOpaque(false);
 		
 	}
-	//Êó±ê·½·¨
+	//é¼ æ ‡æ–¹æ³•
 }
 
 

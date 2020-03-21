@@ -6,11 +6,11 @@ import javax.swing.ImageIcon;
 
 import com.bdqn.mainfunction.MainFunction;
 import com.bdqn.ui.MainBusinessPanel;
-//°´Å¥ÇĞ»»Àà
+//æŒ‰é’®åˆ‡æ¢ç±»
 public final class Cutover{
 	private Cutover() {}
 	
-	//Ãæ°åÇĞ»»
+	//é¢æ¿åˆ‡æ¢
 	public static void PanelCutover() {
 		if(MainFunction.SelectedPanelName==null||MainFunction.SelectedPanelName==MainFunction.LastSelectedPanelName) {
 			return;
@@ -24,7 +24,7 @@ public final class Cutover{
 			}
 		}
 		
-		//ÇĞ»»¶ÔÓ¦µÄÖ÷Ãæ°å±³¾°Í¼Æ¬
+		//åˆ‡æ¢å¯¹åº”çš„ä¸»é¢æ¿èƒŒæ™¯å›¾ç‰‡
 		MainFunction.mainPanelBackground.setIcon(new ImageIcon("src/com/bdqn/images/"+newpanel.getPanelName()+".jpg"));
 		
 		if(MainFunction.LastSelectedPanelName==null) {
@@ -32,7 +32,7 @@ public final class Cutover{
 			return;
 		}
 		
-		//µ÷ÓÃ¶¯»­ºó»Ö¸´Ãæ°åµÄÊôĞÔ
+		//è°ƒç”¨åŠ¨ç”»åæ¢å¤é¢æ¿çš„å±æ€§
 		Rectangle oldBounds=oldpanel.getBounds();
 		Rectangle newBounds=newpanel.getBounds();
 		//

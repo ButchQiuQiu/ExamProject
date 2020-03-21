@@ -11,35 +11,35 @@ import com.bdqn.staticmeth.Cutover;
 import com.bdqn.ui.MainBusinessPanel;
 
 public class MainFunction {
-	public static String LastSelectedPanelName;				//ÉÏÒ»¸öÑ¡ÔñµÄ°´Å¥£¨¶¯»­ÅĞ¶¨£©
-	public static String SelectedPanelName;					//µ±Ç°Ñ¡ÔñµÄ°´Å¥(¶¯»­ÅĞ¶¨)
-	public static boolean Switch=false;						//¶¯»­ÇĞ»»¿ª¹Ø
-	public static List<MainBusinessPanel> Panels;			//ËùÓĞÒµÎñÃæ°å
-	public static JLabel mainPanelBackground;				//Ö÷½çÃæ
-	public static int MainPanelType=0;					    //Ö÷Ãæ°åÀàĞÍ 1ÎªÀÏÊ¦ 2ÎªÑ§Éú
+	public static String LastSelectedPanelName;				//ä¸Šä¸€ä¸ªé€‰æ‹©çš„æŒ‰é’®ï¼ˆåŠ¨ç”»åˆ¤å®šï¼‰
+	public static String SelectedPanelName;					//å½“å‰é€‰æ‹©çš„æŒ‰é’®(åŠ¨ç”»åˆ¤å®š)
+	public static boolean Switch=false;						//åŠ¨ç”»åˆ‡æ¢å¼€å…³
+	public static List<MainBusinessPanel> Panels;			//æ‰€æœ‰ä¸šåŠ¡é¢æ¿
+	public static JLabel mainPanelBackground;				//ä¸»ç•Œé¢
+	public static int MainPanelType=0;					    //ä¸»é¢æ¿ç±»å‹ 1ä¸ºè€å¸ˆ 2ä¸ºå­¦ç”Ÿ
 	
-	//Ñ§Éú¿¼ÊÔµÄ²ÎÊı
-	public static ExamForm StudentExamForm;					//¿¼ÊÔÃæ°å
-	public static int StudentId;							//Ñ§Éú±àºÅ
+	//å­¦ç”Ÿè€ƒè¯•çš„å‚æ•°
+	public static ExamForm StudentExamForm;					//è€ƒè¯•é¢æ¿
+	public static int StudentId;							//å­¦ç”Ÿç¼–å·
 		
 	public static void main(String[] args) throws Exception {
 		Login ml=new Login();
 		ml.setVisible(true);
-		//µÈ´ıÓÃ»§µÇÂ¼
+		//ç­‰å¾…ç”¨æˆ·ç™»å½•
 		LoginBiz.WaitLogin();
 		ml.setVisible(false);
 		MainFrame mf=new MainFrame();
 		mf.setVisible(true);
-		//SwingµÄÏß³ÌÊÇ²»°²È«µÄ uiÖ»ÄÜÔÚÖ÷Ïß³ÌÖĞË¢ĞÂ ËùÒÔ°Ñ¶¯»­·ÅÈëÖ÷Ïß³Ì 
-		//while Ñ­»·ÅĞ¶Ï±æÊ¶·û ±êÊ¶·û¸Ä±ä
+		//Swingçš„çº¿ç¨‹æ˜¯ä¸å®‰å…¨çš„ uiåªèƒ½åœ¨ä¸»çº¿ç¨‹ä¸­åˆ·æ–° æ‰€ä»¥æŠŠåŠ¨ç”»æ”¾å…¥ä¸»çº¿ç¨‹ 
+		//while å¾ªç¯åˆ¤æ–­è¾¨è¯†ç¬¦ æ ‡è¯†ç¬¦æ”¹å˜
 		while(true) {
 			Thread.sleep(15);
 			Thread.sleep(100);
 			if(Switch) {
 				
 				Cutover.PanelCutover();
-				if(SelectedPanelName.equals("6")&&MainPanelType==1||SelectedPanelName.equals("Ñ§Éú3")&&MainPanelType==2) {
-					//ÍË³ö(ºóÆÚ¿É×ö¶¯»­)
+				if(SelectedPanelName.equals("6")&&MainPanelType==1||SelectedPanelName.equals("å­¦ç”Ÿ3")&&MainPanelType==2) {
+					//é€€å‡º(åæœŸå¯åšåŠ¨ç”»)
 					System.exit(0);
 				}
 				Switch=false;

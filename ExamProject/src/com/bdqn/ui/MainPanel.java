@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import com.bdqn.mainfunction.MainFunction;
 
 @SuppressWarnings("serial")
-//Ö÷Ãæ°å ÓÃÓÚ·ÅÖÃ°´Å¥ºÍÒµÎñÃæ°å
+//ä¸»é¢æ¿ ç”¨äºæ”¾ç½®æŒ‰é’®å’Œä¸šåŠ¡é¢æ¿
 public class MainPanel extends JPanel{
 	@SuppressWarnings({ })
 	public MainPanel() {
@@ -25,11 +25,11 @@ public class MainPanel extends JPanel{
 		}
 	}
 	
-	//ÀÏÊ¦½çÃæ
+	//è€å¸ˆç•Œé¢
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void TeacherPanel() {
 		EditStudent mp1=new EditStudent();mp1.setPanelName("1");mp1.setLayers(1);
-		//Ä¬ÈÏÏÔÊ¾µÚÒ»¸ö½çÃæ
+		//é»˜è®¤æ˜¾ç¤ºç¬¬ä¸€ä¸ªç•Œé¢
 		mp1.setVisible(true);
 		MainFunction.LastSelectedPanelName=mp1.getPanelName();
 		MainFunction.SelectedPanelName=mp1.getPanelName();
@@ -58,12 +58,12 @@ public class MainPanel extends JPanel{
 		MainFunction.Panels.add(mp5);
 		MainFunction.Panels.add(mp6);
 		
-		MainButton b1=new MainButton(mp1.getPanelName(),"Ñ§Éú¹ÜÀí");
-		MainButton b2=new MainButton(mp2.getPanelName(),"Â¼ÈëÊÔÌâ");
-		MainButton b3=new MainButton(mp3.getPanelName(),"ÊÔ¾í¹ÜÀí");
-		MainButton b4=new MainButton(mp4.getPanelName(),"¿ªÊ¼¿¼ÊÔ");
-		MainButton b5=new MainButton(mp5.getPanelName(),"²é¿´³É¼¨");
-		MainButton b6=new MainButton(mp6.getPanelName(),"ÍË³öÏµÍ³");
+		MainButton b1=new MainButton(mp1.getPanelName(),"å­¦ç”Ÿç®¡ç†");
+		MainButton b2=new MainButton(mp2.getPanelName(),"å½•å…¥è¯•é¢˜");
+		MainButton b3=new MainButton(mp3.getPanelName(),"è¯•å·ç®¡ç†");
+		MainButton b4=new MainButton(mp4.getPanelName(),"å¼€å§‹è€ƒè¯•");
+		MainButton b5=new MainButton(mp5.getPanelName(),"æŸ¥çœ‹æˆç»©");
+		MainButton b6=new MainButton(mp6.getPanelName(),"é€€å‡ºç³»ç»Ÿ");
 		
 		b1.setBounds(0, 138, 280, 65);
 		b2.setBounds(0, 216, 280, 65);
@@ -83,18 +83,18 @@ public class MainPanel extends JPanel{
 		this.add(MainFunction.mainPanelBackground);
 	}
 	
-	//Ñ§Éú½çÃæ
+	//å­¦ç”Ÿç•Œé¢
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void StudentPanel() {
-		StudentScore mp1=new StudentScore();mp1.setPanelName("Ñ§Éú1");mp1.setLayers(1);
-		//Ä¬ÈÏÏÔÊ¾µÚÒ»¸ö½çÃæ
+		StudentScore mp1=new StudentScore();mp1.setPanelName("å­¦ç”Ÿ1");mp1.setLayers(1);
+		//é»˜è®¤æ˜¾ç¤ºç¬¬ä¸€ä¸ªç•Œé¢
 		mp1.setVisible(true);
 		MainFunction.LastSelectedPanelName=mp1.getPanelName();
 		MainFunction.SelectedPanelName=mp1.getPanelName();
 		
-		MainFunction.StudentExamForm=new ExamForm();MainFunction.StudentExamForm.setPanelName("Ñ§Éú2");MainFunction.StudentExamForm.setLayers(2);
+		MainFunction.StudentExamForm=new ExamForm();MainFunction.StudentExamForm.setPanelName("å­¦ç”Ÿ2");MainFunction.StudentExamForm.setLayers(2);
 		MainFunction.StudentExamForm.setBackground(null);MainFunction.StudentExamForm.setOpaque(false);;
-		MainBusinessPanel mp3=new MainBusinessPanel();mp3.setPanelName("Ñ§Éú3");mp3.setLayers(3);
+		MainBusinessPanel mp3=new MainBusinessPanel();mp3.setPanelName("å­¦ç”Ÿ3");mp3.setLayers(3);
 		mp1.setBackground(Color.RED);
 		mp3.setBackground(Color.BLUE);
 		this.add(mp1);
@@ -105,9 +105,9 @@ public class MainPanel extends JPanel{
 		MainFunction.Panels.add(MainFunction.StudentExamForm);
 		MainFunction.Panels.add(mp3);
 		
-		MainButton b1=new MainButton(mp1.getPanelName(),"²é¿´×ÊÁÏ");
-		MainButton b2=new MainButton(MainFunction.StudentExamForm.getPanelName(),"¿ªÊ¼¿¼ÊÔ");
-		MainButton b3=new MainButton(mp3.getPanelName(),"ÍË³öÏµÍ³");
+		MainButton b1=new MainButton(mp1.getPanelName(),"æŸ¥çœ‹èµ„æ–™");
+		MainButton b2=new MainButton(MainFunction.StudentExamForm.getPanelName(),"å¼€å§‹è€ƒè¯•");
+		MainButton b3=new MainButton(mp3.getPanelName(),"é€€å‡ºç³»ç»Ÿ");
 		
 		
 		b1.setBounds(0, 138, 280, 65);
@@ -117,7 +117,7 @@ public class MainPanel extends JPanel{
 		this.add(b2);
 		this.add(b3);
 		
-		MainFunction.mainPanelBackground=new JLabel(new ImageIcon("src/com/bdqn/images/Ñ§Éú1.jpg"));
+		MainFunction.mainPanelBackground=new JLabel(new ImageIcon("src/com/bdqn/images/å­¦ç”Ÿ1.jpg"));
 		MainFunction.mainPanelBackground.setBounds(0, 0, this.getWidth(), this.getHeight());
 		this.add(MainFunction.mainPanelBackground);
 	}

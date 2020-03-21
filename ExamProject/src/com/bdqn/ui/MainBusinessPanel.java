@@ -2,11 +2,11 @@ package com.bdqn.ui;
 
 import javax.swing.JPanel;
 
-//ÒµÎñ´°¿Ú
+//ä¸šåŠ¡çª—å£
 @SuppressWarnings("serial")
 public class MainBusinessPanel extends JPanel{
-	private String panelName;	//Ãæ°åÃû³Æ keyÖµ ÇĞ»»ÓÃ
-	private int layers;			//Ãæ°å¶ÔÓ¦µÄ²ãÊı ¶¯»­ÓÃ
+	private String panelName;	//é¢æ¿åç§° keyå€¼ åˆ‡æ¢ç”¨
+	private int layers;			//é¢æ¿å¯¹åº”çš„å±‚æ•° åŠ¨ç”»ç”¨
 	public MainBusinessPanel() {
 		super();
 		this.setLayout(null);
